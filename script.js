@@ -75,7 +75,7 @@ function pressCell() {
 }
 
 function neighboursValues(matrix, k, l) {
-    if ((k >= 1 && k <= 7) || (l >= 1 && l <= 7)) {
+    if (k - 1 >= 0) {
         if (matrix[k - 1][l] == 0) {
             document.getElementById('' + (k - 1) + '' + l + '').innerHTML = ' ';
             document.getElementById('' + (k - 1) + '' + l + '').style.background = 'green';
@@ -83,6 +83,8 @@ function neighboursValues(matrix, k, l) {
             document.getElementById('' + (k - 1) + '' + l + '').innerHTML = matrix[k - 1][l];
             document.getElementById('' + (k - 1) + '' + l + '').style.background = 'green';
         }
+    } 
+    if (k + 1 <= 8) {
         if (matrix[k + 1][l] == 0) {
             document.getElementById('' + (k + 1) + '' + l + '').innerHTML = ' ';
             document.getElementById('' + (k + 1) + '' + l + '').style.background = 'green';
@@ -90,6 +92,8 @@ function neighboursValues(matrix, k, l) {
             document.getElementById('' + (k + 1) + '' + l + '').innerHTML = matrix[k + 1][l];
             document.getElementById('' + (k + 1) + '' + l + '').style.background = 'green';
         }
+    }
+    if (l + 1 <= 8) {
         if (matrix[k][l + 1] == 0) {
             document.getElementById('' + k + '' + (l + 1)+ '').innerHTML = ' ';
             document.getElementById('' + k + '' + (l + 1) + '').style.background = 'green';
@@ -97,6 +101,8 @@ function neighboursValues(matrix, k, l) {
             document.getElementById('' + k + '' + (l + 1) + '').innerHTML = matrix[k][l + 1];
             document.getElementById('' + k + '' + (l + 1) + '').style.background = 'green';
         }
+    } 
+    if (l - 1 >= 0) {
         if (matrix[k][l - 1] == 0) {
             document.getElementById('' + k + '' + (l - 1) + '').innerHTML = ' ';
             document.getElementById('' + k + '' + (l - 1) + '').style.background = 'green';
@@ -104,6 +110,8 @@ function neighboursValues(matrix, k, l) {
             document.getElementById('' + k + '' + (l - 1) + '').innerHTML = matrix[k][l - 1];
             document.getElementById('' + k + '' + (l - 1) + '').style.background = 'green';
         }
+    }
+    if (k + 1 <= 8 && l + 1 <= 8) {
         if (matrix[k + 1][l + 1] == 0) {
             document.getElementById('' + (k + 1) + '' + (l + 1) + '').innerHTML = ' ';
             document.getElementById('' + (k + 1) + '' + (l + 1) + '').style.background = 'green';
@@ -111,6 +119,8 @@ function neighboursValues(matrix, k, l) {
             document.getElementById('' + (k + 1) + '' + (l + 1) + '').innerHTML = matrix[k + 1][l + 1];
             document.getElementById('' + (k + 1) + '' + (l + 1) + '').style.background = 'green';
         }
+    }
+    if (k + 1 <= 8 && l - 1 >= 0) {
         if (matrix[k + 1][l - 1] == 0) {
             document.getElementById('' + (k + 1) + '' + (l - 1) + '').innerHTML = ' ';
             document.getElementById('' + (k + 1) + '' + (l - 1) + '').style.background = 'green';
@@ -118,6 +128,8 @@ function neighboursValues(matrix, k, l) {
             document.getElementById('' + (k + 1) + '' + (l - 1) + '').innerHTML = matrix[k + 1][l - 1];
             document.getElementById('' + (k + 1) + '' + (l - 1) + '').style.background = 'green';
         }
+    }
+    if (k - 1 >= 0 && l + 1 <= 8) {
         if (matrix[k - 1][l + 1] == 0) {
             document.getElementById('' + (k - 1) + '' + (l + 1) + '').innerHTML = ' ';
             document.getElementById('' + (k - 1) + '' + (l + 1) + '').style.background = 'green';
@@ -125,6 +137,8 @@ function neighboursValues(matrix, k, l) {
             document.getElementById('' + (k - 1) + '' + (l + 1) + '').innerHTML = matrix[k - 1][l + 1];
             document.getElementById('' + (k - 1) + '' + (l + 1) + '').style.background = 'green';
         }
+    }
+    if (k - 1 >= 0 && l - 1 >= 0) {
         if (matrix[k - 1][l - 1] == 0) {
             document.getElementById('' + (k - 1) + '' + (l - 1) + '').innerHTML = ' ';
             document.getElementById('' + (k - 1) + '' + (l - 1) + '').style.background = 'green';
