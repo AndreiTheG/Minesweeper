@@ -74,255 +74,11 @@ function pressCell() {
     findCell(matrix);
 }
 
-function verifyTheNeighbours2(matrix, k, l) {
-    if (k - 1 >= 0) {
-        if (matrix[k - 1][l] == 0) {
-            document.getElementById('' + (k - 1) + '' + l + '').innerHTML = ' ';
-            document.getElementById('' + (k - 1) + '' + l + '').style.background = 'green';
-        } else if (matrix[k - 1][l] > 0 && matrix[k - 1][l] < 10) {
-            document.getElementById('' + (k - 1) + '' + l + '').innerHTML = matrix[k - 1][l];
-            document.getElementById('' + (k - 1) + '' + l + '').style.background = 'green';
-        }
-    } 
-    if (k + 1 <= 8) {
-        if (matrix[k + 1][l] == 0) {
-            document.getElementById('' + (k + 1) + '' + l + '').innerHTML = ' ';
-            document.getElementById('' + (k + 1) + '' + l + '').style.background = 'green';
-        } else if (matrix[k + 1][l] > 0 && matrix[k + 1][l] < 10) {
-            document.getElementById('' + (k + 1) + '' + l + '').innerHTML = matrix[k + 1][l];
-            document.getElementById('' + (k + 1) + '' + l + '').style.background = 'green';
-        }
-    }
-    if (l + 1 <= 8) {
-        if (matrix[k][l + 1] == 0) {
-            document.getElementById('' + k + '' + (l + 1)+ '').innerHTML = ' ';
-            document.getElementById('' + k + '' + (l + 1) + '').style.background = 'green';
-        } else if (matrix[k][l + 1] > 0 && matrix[k][l + 1] < 10) {
-            document.getElementById('' + k + '' + (l + 1) + '').innerHTML = matrix[k][l + 1];
-            document.getElementById('' + k + '' + (l + 1) + '').style.background = 'green';
-        }
-    } 
-    if (l - 1 >= 0) {
-        if (matrix[k][l - 1] == 0) {
-            document.getElementById('' + k + '' + (l - 1) + '').innerHTML = ' ';
-            document.getElementById('' + k + '' + (l - 1) + '').style.background = 'green';
-        } else if (matrix[k][l - 1] > 0 && matrix[k][l - 1] < 10) {
-            document.getElementById('' + k + '' + (l - 1) + '').innerHTML = matrix[k][l - 1];
-            document.getElementById('' + k + '' + (l - 1) + '').style.background = 'green';
-        }
-    }
-    if (k + 1 <= 8 && l + 1 <= 8) {
-        if (matrix[k + 1][l + 1] == 0) {
-            document.getElementById('' + (k + 1) + '' + (l + 1) + '').innerHTML = ' ';
-            document.getElementById('' + (k + 1) + '' + (l + 1) + '').style.background = 'green';
-            document.getElementById('' + (k + 1) + '' + (l + 1) + '').style.background = 'green';
-        } else if (matrix[k + 1][l + 1] > 0 && matrix[k + 1][l + 1] < 10) {
-            document.getElementById('' + (k + 1) + '' + (l + 1) + '').innerHTML = matrix[k + 1][l + 1];
-            document.getElementById('' + (k + 1) + '' + (l + 1) + '').style.background = 'green';
-        }
-    }
-    if (k + 1 <= 8 && l - 1 >= 0) {
-        if (matrix[k + 1][l - 1] == 0) {
-            document.getElementById('' + (k + 1) + '' + (l - 1) + '').innerHTML = ' ';
-            document.getElementById('' + (k + 1) + '' + (l - 1) + '').style.background = 'green'; 
-        } else if (matrix[k + 1][l - 1] > 0 && matrix[k + 1][l - 1] < 10) {
-            document.getElementById('' + (k + 1) + '' + (l - 1) + '').innerHTML = matrix[k + 1][l - 1];
-            document.getElementById('' + (k + 1) + '' + (l - 1) + '').style.background = 'green';
-        }
-    }
-    if (k - 1 >= 0 && l + 1 <= 8) {
-        if (matrix[k - 1][l + 1] == 0) {
-            document.getElementById('' + (k - 1) + '' + (l + 1) + '').innerHTML = ' ';
-            document.getElementById('' + (k - 1) + '' + (l + 1) + '').style.background = 'green';
-        } else if (matrix[k - 1][l + 1] > 0 && matrix[k - 1][l + 1] < 10) {
-            document.getElementById('' + (k - 1) + '' + (l + 1) + '').innerHTML = matrix[k - 1][l + 1];
-            document.getElementById('' + (k - 1) + '' + (l + 1) + '').style.background = 'green';
-        }
-    }
-    if (k - 1 >= 0 && l - 1 >= 0) {
-        if (matrix[k - 1][l - 1] == 0) {
-            document.getElementById('' + (k - 1) + '' + (l - 1) + '').innerHTML = ' ';
-            document.getElementById('' + (k - 1) + '' + (l - 1) + '').style.background = 'green';
-        } else if (matrix[k - 1][l - 1] > 0 && matrix[k - 1][l - 1] < 10) {
-            document.getElementById('' + (k - 1) + '' + (l - 1) + '').innerHTML = matrix[k - 1][l - 1];
-            document.getElementById('' + (k - 1) + '' + (l - 1) + '').style.background = 'green';
-        }
-    }
-}
-
-function north2(matrix, row, column) {
-    let isTrue = true;
-    for (let j = column; j <= 8 && isTrue == true; ++j) {
-        let isSafe = true, isNull = 0;
-        for (let i = row; i >= 0 && isSafe == true; --i) {
-            if (matrix[i][j] == 0) { 
-                ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                verifyTheNeighbours2(matrix, i, j);
-                console.log('stanga-jos2');
-                console.log('' + i + '' + j + ''); 
-            } else {
-                isSafe = false;
-            }
-        }
-        if (isNull == 0) {
-            isTrue = false;
-        }
-    }
-    let isTrue2 = true;
-    for (let j = column; j >= 0 && isTrue2 == true; --j) {
-        let isSafe = true, isNull = 0;
-        for (let i = row; i >= 0 && isSafe == true; --i) {
-            if (matrix[i][j] == 0) { 
-                ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                verifyTheNeighbours2(matrix, i, j);
-                console.log('stanga-sus2');
-                console.log('' + i + '' + j + ''); 
-            } else {
-                isSafe = false;
-            }
-        }
-        if (isNull == 0) {
-            isTrue2 = false;
-        }
-    }
-}
-
-function south2(matrix, row, column) {
-    let isTrue = true;
-    for (let j = column; j <= 8 && isTrue == true; ++j) {
-        let isSafe = true, isNull = 0;
-        for (let i = row; i <= 8 && isSafe == true; ++i) {
-            if (matrix[i][j] == 0) { 
-                ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                console.log('dreapta-jos2');
-                console.log('' + i + '' + j + ''); 
-                verifyTheNeighbours2(matrix, i, j);
-            } else {
-                isSafe = false;
-            }
-        }
-        if (isNull == 0) {
-            isTrue = false;
-        }
-    }
-    let isTrue2 = true;
-    for (let j = column; j >= 0 && isTrue2 == true; --j) {
-        let isSafe = true, isNull = 0;
-        for (let i = row; i <= 0 && isSafe == true; ++i) {
-            if (matrix[i][j] == 0) { 
-                ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                console.log('dreapta-sus2');
-                console.log('' + i + '' + j + ''); 
-                verifyTheNeighbours2(matrix, i, j);
-            } else {
-                isSafe = false;
-            }
-        }
-        if (isNull == 0) {
-            isTrue2 = false;
-        }
-    }
-}
-
-function east2(matrix, row, column) {
-    let isTrue = true;
-    for (let i = row; i <= 8 && isTrue == true; ++i) {
-        let isSafe = true, isNull = 0;
-        for (let j = column; j <= 8 && isSafe == true; ++j) {
-            if (matrix[i][j] == 0) { 
-                ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                console.log('dreapta-jos3');
-                console.log('' + i + '' + j + ''); 
-                verifyTheNeighbours2(matrix, i, j);
-            } else {
-                isSafe = false;
-            }
-        }
-        if (isNull == 0) {
-            isTrue = false;
-        }
-    }
-    let isTrue2 = true;
-    for (let i = row; i >= 0 && isTrue2 == true; --i) {
-        let isSafe = true, isNull = 0;
-        for (let j = column; j <= 8 && isSafe == true; ++j) {
-            if (matrix[i][j] == 0) { 
-                ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                console.log('dreapta-sus3');
-                console.log('' + i + '' + j + ''); 
-                verifyTheNeighbours2(matrix, i, j);
-            } else {
-                isSafe = false;
-            }
-        }
-        if (isNull == 0) {
-            isTrue2 = false;
-        }
-    }
-}
-
-function west2(matrix, row, column) {
-    let isTrue = true;
-    for (let i = row; i <= 8 && isTrue == true; ++i) {
-        let isSafe = true, isNull = 0;
-        for (let j = column; j >= 0 && isSafe == true; --j) {
-            if (matrix[i][j] == 0) { 
-                ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                console.log('stanga-jos3');
-                console.log('' + i + '' + j + ''); 
-                verifyTheNeighbours2(matrix, i, j);
-            } else {
-                isSafe = false;
-            }
-        }
-        if (isNull == 0) {
-            isTrue = false;
-        }
-    }
-    let isTrue2 = true;
-    for (let i = row; i >= 0 && isTrue2 == true; --i) {
-        let isSafe = true, isNull = 0;
-        for (let j = column; j >= 0 && isSafe == true; --j) {
-            if (matrix[i][j] == 0) { 
-                ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                verifyTheNeighbours2(matrix, i, j);
-                console.log('stanga-sus3');
-                console.log('' + i + '' + j + ''); 
-            } else {
-                isSafe = false;
-            }
-        }
-        if (isNull == 0) {
-            isTrue2 = false;
-        }
-    }
-}
-
 function neighboursValues(matrix, k, l) {
     if (k - 1 >= 0) {
         if (matrix[k - 1][l] == 0) {
             document.getElementById('' + (k - 1) + '' + l + '').innerHTML = ' ';
             document.getElementById('' + (k - 1) + '' + l + '').style.background = 'green';
-            north2(matrix, k - 1, l);
-            south2(matrix, k - 1, l);
-            east2(matrix, k - 1, l);
-            west2(matrix, k - 1, l);
         } else if (matrix[k - 1][l] > 0 && matrix[k - 1][l] < 10) {
             document.getElementById('' + (k - 1) + '' + l + '').innerHTML = matrix[k - 1][l];
             document.getElementById('' + (k - 1) + '' + l + '').style.background = 'green';
@@ -332,10 +88,6 @@ function neighboursValues(matrix, k, l) {
         if (matrix[k + 1][l] == 0) {
             document.getElementById('' + (k + 1) + '' + l + '').innerHTML = ' ';
             document.getElementById('' + (k + 1) + '' + l + '').style.background = 'green';
-            north2(matrix, k + 1, l);
-            south2(matrix, k + 1, l);
-            east2(matrix, k + 1, l);
-            west2(matrix, k + 1, l);
         } else if (matrix[k + 1][l] > 0 && matrix[k + 1][l] < 10) {
             document.getElementById('' + (k + 1) + '' + l + '').innerHTML = matrix[k + 1][l];
             document.getElementById('' + (k + 1) + '' + l + '').style.background = 'green';
@@ -345,10 +97,6 @@ function neighboursValues(matrix, k, l) {
         if (matrix[k][l + 1] == 0) {
             document.getElementById('' + k + '' + (l + 1)+ '').innerHTML = ' ';
             document.getElementById('' + k + '' + (l + 1) + '').style.background = 'green';
-            north2(matrix, k, l + 1);
-            south2(matrix, k, l + 1);
-            east2(matrix, k, l + 1);
-            west2(matrix, k, l + 1);
         } else if (matrix[k][l + 1] > 0 && matrix[k][l + 1] < 10) {
             document.getElementById('' + k + '' + (l + 1) + '').innerHTML = matrix[k][l + 1];
             document.getElementById('' + k + '' + (l + 1) + '').style.background = 'green';
@@ -358,10 +106,6 @@ function neighboursValues(matrix, k, l) {
         if (matrix[k][l - 1] == 0) {
             document.getElementById('' + k + '' + (l - 1) + '').innerHTML = ' ';
             document.getElementById('' + k + '' + (l - 1) + '').style.background = 'green';
-            north2(matrix, k, l - 1);
-            south2(matrix, k, l - 1);
-            east2(matrix, k, l - 1);
-            west2(matrix, k, l - 1);
         } else if (matrix[k][l - 1] > 0 && matrix[k][l - 1] < 10) {
             document.getElementById('' + k + '' + (l - 1) + '').innerHTML = matrix[k][l - 1];
             document.getElementById('' + k + '' + (l - 1) + '').style.background = 'green';
@@ -371,10 +115,6 @@ function neighboursValues(matrix, k, l) {
         if (matrix[k + 1][l + 1] == 0) {
             document.getElementById('' + (k + 1) + '' + (l + 1) + '').innerHTML = ' ';
             document.getElementById('' + (k + 1) + '' + (l + 1) + '').style.background = 'green';
-            north2(matrix, k + 1, l + 1);
-            south2(matrix, k + 1, l + 1);
-            east2(matrix, k + 1, l + 1);
-            west2(matrix, k + 1, l + 1);
         } else if (matrix[k + 1][l + 1] > 0 && matrix[k + 1][l + 1] < 10) {
             document.getElementById('' + (k + 1) + '' + (l + 1) + '').innerHTML = matrix[k + 1][l + 1];
             document.getElementById('' + (k + 1) + '' + (l + 1) + '').style.background = 'green';
@@ -384,10 +124,6 @@ function neighboursValues(matrix, k, l) {
         if (matrix[k + 1][l - 1] == 0) {
             document.getElementById('' + (k + 1) + '' + (l - 1) + '').innerHTML = ' ';
             document.getElementById('' + (k + 1) + '' + (l - 1) + '').style.background = 'green';
-            north2(matrix, k + 1, l - 1);
-            south2(matrix, k + 1, l - 1);
-            east2(matrix, k + 1, l - 1);
-            west2(matrix, k + 1, l - 1);
         } else if (matrix[k + 1][l - 1] > 0 && matrix[k + 1][l - 1] < 10) {
             document.getElementById('' + (k + 1) + '' + (l - 1) + '').innerHTML = matrix[k + 1][l - 1];
             document.getElementById('' + (k + 1) + '' + (l - 1) + '').style.background = 'green';
@@ -397,10 +133,6 @@ function neighboursValues(matrix, k, l) {
         if (matrix[k - 1][l + 1] == 0) {
             document.getElementById('' + (k - 1) + '' + (l + 1) + '').innerHTML = ' ';
             document.getElementById('' + (k - 1) + '' + (l + 1) + '').style.background = 'green';
-            north2(matrix, k - 1, l + 1);
-            south2(matrix, k - 1, l + 1);
-            east2(matrix, k - 1, l + 1);
-            west2(matrix, k - 1, l + 1);
         } else if (matrix[k - 1][l + 1] > 0 && matrix[k - 1][l + 1] < 10) {
             document.getElementById('' + (k - 1) + '' + (l + 1) + '').innerHTML = matrix[k - 1][l + 1];
             document.getElementById('' + (k - 1) + '' + (l + 1) + '').style.background = 'green';
@@ -410,10 +142,6 @@ function neighboursValues(matrix, k, l) {
         if (matrix[k - 1][l - 1] == 0) {
             document.getElementById('' + (k - 1) + '' + (l - 1) + '').innerHTML = ' ';
             document.getElementById('' + (k - 1) + '' + (l - 1) + '').style.background = 'green';
-            north2(matrix, k - 1, l - 1);
-            south2(matrix, k - 1, l - 1);
-            east2(matrix, k - 1, l - 1);
-            west2(matrix, k - 1, l - 1);
         } else if (matrix[k - 1][l - 1] > 0 && matrix[k - 1][l - 1] < 10) {
             document.getElementById('' + (k - 1) + '' + (l - 1) + '').innerHTML = matrix[k - 1][l - 1];
             document.getElementById('' + (k - 1) + '' + (l - 1) + '').style.background = 'green';
