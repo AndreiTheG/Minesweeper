@@ -79,7 +79,7 @@ function cellValue(matrix, row, column) {
         document.getElementById('' + row + '' + column + '').innerHTML = ' ';
         document.getElementById('' + row + '' + column + '').style.background = 'green';
     } else if (matrix[row][column] > 0 && matrix[row][column] < 10) {
-        document.getElementById('' + row + '' + column + '').innerHTML = matrix[k - 1][l];
+        document.getElementById('' + row + '' + column + '').innerHTML = matrix[row][column];
         document.getElementById('' + row + '' + column + '').style.background = 'green';
     }
 }
