@@ -276,7 +276,7 @@ function findCell(matrix) {
                         south(matrix, i, j);
                         north(matrix, i, j);         
                     }
-                }  else if (value == 10) {
+                } else if (value == 10) {
                     document.getElementById(id).innerHTML = '💣';
                     document.getElementById('output').innerHTML = 'Game over';
                     for (let i = 0; i < 9; ++i) {
