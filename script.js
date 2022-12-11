@@ -75,7 +75,7 @@ function pressCell() {
 }
 
 function neighboursValues(matrix, k, l) {
-    if (k - 1 >= 0 && k + 1 <= 8 && l - 1 >= 0 && l + 1 <= 8) {
+    if ((k - 1 >= 0 && k + 1 <= 8) || (l - 1 >= 0 && l + 1 <= 8)) {
         if (matrix[k - 1][l] == 0) {
             document.getElementById('' + (k - 1) + '' + l + '').innerHTML = ' ';
             document.getElementById('' + (k - 1) + '' + l + '').style.background = 'green';
