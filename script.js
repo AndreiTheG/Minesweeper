@@ -121,8 +121,6 @@ function north(matrix, row, column) {
                 document.getElementById('' + i + '' + j + '').innerHTML = ' ';
                 document.getElementById('' + i + '' + j + '').style.background = 'green';
                 neighboursValues(matrix, i, j);
-                console.log('stanga-jos2');
-                console.log('' + i + '' + j + ''); 
             } else {
                 isSafe = false;
             }
@@ -140,8 +138,6 @@ function north(matrix, row, column) {
                 document.getElementById('' + i + '' + j + '').innerHTML = ' ';
                 document.getElementById('' + i + '' + j + '').style.background = 'green';
                 neighboursValues(matrix, i, j);
-                console.log('stanga-sus2');
-                console.log('' + i + '' + j + ''); 
             } else {
                 isSafe = false;
             }
@@ -162,8 +158,6 @@ function south(matrix, row, column) {
                 document.getElementById('' + i + '' + j + '').innerHTML = ' ';
                 document.getElementById('' + i + '' + j + '').style.background = 'green';
                 neighboursValues(matrix, i, j);
-                console.log('dreapta-jos2');
-                console.log('' + i + '' + j + ''); 
             } else {
                 isSafe = false;
             }
@@ -181,8 +175,6 @@ function south(matrix, row, column) {
                 document.getElementById('' + i + '' + j + '').innerHTML = ' ';
                 document.getElementById('' + i + '' + j + '').style.background = 'green';
                 neighboursValues(matrix, i, j);
-                console.log('dreapta-sus2');
-                console.log('' + i + '' + j + ''); 
             } else {
                 isSafe = false;
             }
@@ -203,8 +195,6 @@ function east(matrix, row, column) {
                 document.getElementById('' + i + '' + j + '').innerHTML = ' ';
                 document.getElementById('' + i + '' + j + '').style.background = 'green';
                 neighboursValues(matrix, i, j);
-                console.log('dreapta-jos3');
-                console.log('' + i + '' + j + ''); 
             } else {
                 isSafe = false;
             }
@@ -222,8 +212,6 @@ function east(matrix, row, column) {
                 document.getElementById('' + i + '' + j + '').innerHTML = ' ';
                 document.getElementById('' + i + '' + j + '').style.background = 'green';
                 neighboursValues(matrix, i, j);
-                console.log('dreapta-sus3');
-                console.log('' + i + '' + j + ''); 
             } else {
                 isSafe = false;
             }
@@ -235,44 +223,40 @@ function east(matrix, row, column) {
 }
 
 function west(matrix, row, column) {
-        let isTrue = true;
-        for (let i = row; i <= 8 && isTrue == true; ++i) {
-            let isSafe = true, isNull = 0;
-            for (let j = column; j >= 0 && isSafe == true; --j) {
-                if (matrix[i][j] == 0) { 
-                    ++isNull;   
-                    document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                    document.getElementById('' + i + '' + j + '').style.background = 'green';
-                    neighboursValues(matrix, i, j);
-                    console.log('stanga-jos3');
-                    console.log('' + i + '' + j + ''); 
-                } else {
-                    isSafe = false;
-                }
-            }
-            if (isNull == 0) {
-                isTrue = false;
+    let isTrue = true;
+    for (let i = row; i <= 8 && isTrue == true; ++i) {
+        let isSafe = true, isNull = 0;
+        for (let j = column; j >= 0 && isSafe == true; --j) {
+            if (matrix[i][j] == 0) { 
+                ++isNull;   
+                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
+                document.getElementById('' + i + '' + j + '').style.background = 'green';
+                neighboursValues(matrix, i, j);
+            } else {
+                isSafe = false;
             }
         }
-        let isTrue2 = true;
-        for (let i = row; i >= 0 && isTrue2 == true; --i) {
-            let isSafe = true, isNull = 0;
-            for (let j = column; j >= 0 && isSafe == true; --j) {
-                if (matrix[i][j] == 0) { 
-                    ++isNull;   
-                    document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                    document.getElementById('' + i + '' + j + '').style.background = 'green';
-                    neighboursValues(matrix, i, j);
-                    console.log('stanga-sus3');
-                    console.log('' + i + '' + j + ''); 
-                } else {
-                    isSafe = false;
-                }
-            }
-            if (isNull == 0) {
-                isTrue2 = false;
+        if (isNull == 0) {
+            isTrue = false;
+        }
+    }
+    let isTrue2 = true;
+    for (let i = row; i >= 0 && isTrue2 == true; --i) {
+        let isSafe = true, isNull = 0;
+        for (let j = column; j >= 0 && isSafe == true; --j) {
+            if (matrix[i][j] == 0) { 
+                ++isNull;   
+                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
+                document.getElementById('' + i + '' + j + '').style.background = 'green';
+                neighboursValues(matrix, i, j);
+            } else {
+                isSafe = false;
             }
         }
+        if (isNull == 0) {
+            isTrue2 = false;
+        }
+    }
 }
 
 function findCell(matrix) {
