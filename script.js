@@ -332,8 +332,7 @@ function findCell(matrix) {
                         west(matrix, i, j);
                         east(matrix, i, j);
                         south(matrix, i, j);
-                        north(matrix, i, j);
-                                
+                        north(matrix, i, j);         
                     }
                 }  else if (value == 10) {
                     document.getElementById(id).innerHTML = '💣';
