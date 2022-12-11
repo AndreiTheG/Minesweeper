@@ -75,7 +75,7 @@ function pressCell() {
 }
 
 function neighboursValues(matrix, k, l) {
-    if ((k >= 1 && k <= 7) && (l >= 1 && l <= 7)) {
+    if ((k >= 1 && k <= 7) || (l >= 1 && l <= 7)) {
         if (matrix[k - 1][l] == 0) {
             document.getElementById('' + (k - 1) + '' + l + '').innerHTML = ' ';
             document.getElementById('' + (k - 1) + '' + l + '').style.background = 'green';
