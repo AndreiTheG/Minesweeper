@@ -185,7 +185,7 @@ function south(matrix, row, column) {
     }
 }
 
-/*function east(matrix, row, column) {
+function east(matrix, row, column) {
     let isTrue = true;
     for (let i = row; i <= 8 && isTrue == true; ++i) {
         let isSafe = true, isNull = 0;
@@ -220,9 +220,9 @@ function south(matrix, row, column) {
             isTrue2 = false;
         }
     }
-}*/
+}
 
-/*function west(matrix, row, column) {
+function west(matrix, row, column) {
     let isTrue = true;
     for (let i = row; i <= 8 && isTrue == true; ++i) {
         let isSafe = true, isNull = 0;
@@ -257,7 +257,7 @@ function south(matrix, row, column) {
             isTrue2 = false;
         }
     }
-}*/
+}
 
 function findCell(matrix) {
     let numFlags = 10;
@@ -271,8 +271,8 @@ function findCell(matrix) {
                     document.getElementById(id).onclick = null;
                     document.getElementById(id).style.background = 'green';
                     if (i >= 0 && i <= 8 && j >= 0 && j <= 8) {
-                        //west(matrix, i, j);
-                        //east(matrix, i, j);
+                        west(matrix, i, j);
+                        east(matrix, i, j);
                         south(matrix, i, j);
                         north(matrix, i, j);         
                     }
