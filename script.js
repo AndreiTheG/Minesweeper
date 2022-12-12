@@ -271,8 +271,8 @@ function findCell(matrix) {
                     document.getElementById(id).onclick = null;
                     document.getElementById(id).style.background = 'green';
                     if (i >= 0 && i <= 8 && j >= 0 && j <= 8) {
-                        west(matrix, i, j);
-                        east(matrix, i, j);
+                        //west(matrix, i, j);
+                        //east(matrix, i, j);
                         south(matrix, i, j);
                         north(matrix, i, j);         
                     }
