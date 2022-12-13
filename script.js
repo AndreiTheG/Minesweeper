@@ -136,7 +136,7 @@ function north(matrix, row, column) {
     }
     let isTrue2 = true;
     for (let j = column; j <= 8 && isTrue2 == true; ++j) {
-        let isSafe = true, isNull = 0;
+        let isNull = 0;
         isNull = verifyCells1(matrix, row, column);
         if (isNull == 0) {
             isTrue2 = false;
