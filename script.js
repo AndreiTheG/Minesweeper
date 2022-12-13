@@ -110,20 +110,26 @@ function neighboursValues(matrix, k, l) {
     }
 }
 
+function verifyCells1(matrix, row, column) {
+    let isNull = 0, isSafe = true;
+    for (let i = row; i >= 0 && isSafe == true; --i) {
+        if (matrix[i][j] == 0) { 
+            ++isNull;
+            document.getElementById('' + i + '' + column + '').innerHTML = ' ';
+            document.getElementById('' + i + '' + column + '').style.background = 'green';
+            neighboursValues(matrix, i, j);
+        } else {
+            isSafe = false;
+        }
+    }
+    return isNull;
+}
+
 function north(matrix, row, column) {
     let isTrue = true;
     for (let j = column; j >= 0 && isTrue == true; --j) {
-        let isSafe = true, isNull = 0;
-        for (let i = row; i >= 0 && isSafe == true; --i) {
-            if (matrix[i][j] == 0) { 
-                ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                neighboursValues(matrix, i, j);
-            } else {
-                isSafe = false;
-            }
-        }
+        let isNull = 0;
+        isNull = verifyCells1(matrix, row, column);
         if (isNull == 0) {
             isTrue = false;
         }
@@ -131,16 +137,7 @@ function north(matrix, row, column) {
     let isTrue2 = true;
     for (let j = column; j <= 8 && isTrue2 == true; ++j) {
         let isSafe = true, isNull = 0;
-        for (let i = row; i >= 0 && isSafe == true; --i) {
-            if (matrix[i][j] == 0) { 
-                ++isNull;
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                neighboursValues(matrix, i, j);
-            } else {
-                isSafe = false;
-            }
-        }
+       
         if (isNull == 0) {
             isTrue2 = false;
         }
