@@ -133,7 +133,6 @@ function north(matrix, row, column) {
     for (let j = column; j >= 0 && isTrue == true; --j) {
         let isNull = 0;
         verifyCells(matrix, row, j, isNull);
-        console.log(isNull);
         if (isNull == 0) {
             isTrue = false;
         }
