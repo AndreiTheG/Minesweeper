@@ -110,6 +110,21 @@ function neighboursValues(matrix, k, l) {
     }
 }
 
+function verifyCells(row, column, matrix) {
+    let isNull = 0;
+    for (let i = row; i >= 0 && isSafe == true; --i) {
+        if (matrix[i][j] == 0) { 
+            ++isNull;
+            document.getElementById('' + i + '' + column + '').innerHTML = ' ';
+            document.getElementById('' + i + '' + column + '').style.background = 'green';
+            neighboursValues(matrix, i, column);
+        } else {
+            isSafe = false;
+        }
+    }
+    return isNull;
+}
+
 function north(matrix, row, column) {
     let isTrue = true;
     for (let j = column; j >= 0 && isTrue == true; --j) {
@@ -130,8 +145,9 @@ function north(matrix, row, column) {
     }
     let isTrue2 = true;
     for (let j = column; j <= 8 && isTrue2 == true; ++j) {
-        let isSafe = true, isNull = 0;
-        for (let i = row; i >= 0 && isSafe == true; --i) {
+        let isNull = 0;
+        isNull = verifyCells(row, j, matrix);
+        /*for (let i = row; i >= 0 && isSafe == true; --i) {
             if (matrix[i][j] == 0) { 
                 ++isNull;
                 document.getElementById('' + i + '' + j + '').innerHTML = ' ';
@@ -140,7 +156,7 @@ function north(matrix, row, column) {
             } else {
                 isSafe = false;
             }
-        }
+        }*/
         if (isNull == 0) {
             isTrue2 = false;
         }
