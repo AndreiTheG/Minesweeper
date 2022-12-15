@@ -110,6 +110,12 @@ function neighboursValues(matrix, k, l) {
     }
 }
 
+function cellsResult(matrix, row, column) {
+    document.getElementById('' + row + '' + column + '').innerHTML = ' ';
+    document.getElementById('' + row + '' + column + '').style.background = 'green';
+    neighboursValues(matrix, row, column);
+}
+
 function north(matrix, row, column) {
     let isTrue = true;
     for (let j = column; j >= 0 && isTrue == true; --j) {
@@ -117,9 +123,7 @@ function north(matrix, row, column) {
         for (let i = row; i >= 0 && isSafe == true; --i) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                neighboursValues(matrix, i, j);
+                cellsResult(matrix, i, j);
             } else {
                 isSafe = false;
             }
@@ -134,9 +138,7 @@ function north(matrix, row, column) {
         for (let i = row; i >= 0 && isSafe == true; --i) {
             if (matrix[i][j] == 0) { 
                 ++isNull;
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                neighboursValues(matrix, i, j);
+                cellsResult(matrix, i, j);
             } else {
                 isSafe = false;
             }
@@ -154,9 +156,7 @@ function south(matrix, row, column) {
         for (let i = row; i <= 8 && isSafe == true; ++i) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                neighboursValues(matrix, i, j);
+                cellsResult(matrix, i, j);
             } else {
                 isSafe = false;
             }
@@ -171,9 +171,7 @@ function south(matrix, row, column) {
         for (let i = row; i <= 8 && isSafe == true; ++i) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                neighboursValues(matrix, i, j);
+                cellsResult(matrix, i, j);
             } else {
                 isSafe = false;
             }
@@ -191,9 +189,7 @@ function east(matrix, row, column) {
         for (let j = column; j <= 8 && isSafe == true; ++j) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                neighboursValues(matrix, i, j);
+                cellsResult(matrix, i, j);
             } else {
                 isSafe = false;
             }
@@ -208,9 +204,7 @@ function east(matrix, row, column) {
         for (let j = column; j <= 8 && isSafe == true; ++j) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                neighboursValues(matrix, i, j);
+                cellsResult(matrix, i, j);
             } else {
                 isSafe = false;
             }
@@ -228,9 +222,7 @@ function west(matrix, row, column) {
         for (let j = column; j >= 0 && isSafe == true; --j) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                neighboursValues(matrix, i, j);
+                cellsResult(matrix, i, j);
             } else {
                 isSafe = false;
             }
@@ -245,9 +237,7 @@ function west(matrix, row, column) {
         for (let j = column; j >= 0 && isSafe == true; --j) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
-                document.getElementById('' + i + '' + j + '').innerHTML = ' ';
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-                neighboursValues(matrix, i, j);
+                cellsResult(matrix, i, j);
             } else {
                 isSafe = false;
             }
