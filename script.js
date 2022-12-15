@@ -119,7 +119,7 @@ function cellsResult(matrix, row, column) {
 function verifyCells(matrix, row, column, isNull) {
     let isSafe = true;
     for (let i = row; i >= 0 && isSafe == true; --i) {
-        if (matrix[i][j] == 0) { 
+        if (matrix[i][column] == 0) { 
             ++isNull;   
             cellsResult(matrix, i, column);
         } else {
