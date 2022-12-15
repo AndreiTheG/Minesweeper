@@ -117,6 +117,7 @@ function cellsResult(matrix, row, column) {
 }
 
 function verifyCells(matrix, row, column, isNull) {
+    let isSafe = true;
     for (let i = row; i >= 0 && isSafe == true; --i) {
         if (matrix[i][j] == 0) { 
             ++isNull;   
@@ -130,7 +131,7 @@ function verifyCells(matrix, row, column, isNull) {
 function north(matrix, row, column) {
     let isTrue = true;
     for (let j = column; j >= 0 && isTrue == true; --j) {
-        let isSafe = true, isNull = 0;
+        let isNull = 0;
         /*for (let i = row; i >= 0 && isSafe == true; --i) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
