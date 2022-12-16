@@ -121,7 +121,7 @@ function north(matrix, row, column) {
     for (let j = column; j >= 0 && isTrue == true; --j) {
         let isSafe = true, isNull = 0;
         for (let i = row; i >= 0 && isSafe == true; --i) {
-            if (matrix[i][column] == 0) { 
+            if (matrix[i][j] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, i, j);
             } else {
@@ -136,7 +136,7 @@ function north(matrix, row, column) {
     for (let j = column; j <= 8 && isTrue2 == true; ++j) {
         let isSafe = true, isNull = 0;
         for (let i = row; i >= 0 && isSafe == true; --i) {
-            if (matrix[i][column] == 0) { 
+            if (matrix[i][j] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, i, j);
             } else {
