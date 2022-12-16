@@ -125,6 +125,7 @@ function verifyCellRow(matrix, row, column, isNull) {
     let isSafe = true;
     for (let i = row; i >= 0 && isSafe == true; --i) {
         cellsResult(matrix, row, column, isNull, isSafe);
+        console.log(isSafe);
     }
 }
 
