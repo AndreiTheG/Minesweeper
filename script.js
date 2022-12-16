@@ -110,22 +110,21 @@ function neighboursValues(matrix, k, l) {
     }
 }
 
-function cellsResult(matrix, row, column, isNull, isSafe) {
-    if (matrix[row][column] == 0) { 
-        ++isNull;   
-        document.getElementById('' + row + '' + column + '').innerHTML = ' ';
-        document.getElementById('' + row + '' + column + '').style.background = 'green';
-        neighboursValues(matrix, row, column)
-    } else {
-        isSafe = false;
-    }
+function cellsResult(matrix, row, column) {
+    document.getElementById('' + row + '' + column + '').innerHTML = ' ';
+    document.getElementById('' + row + '' + column + '').style.background = 'green';
+    neighboursValues(matrix, row, column);
 }
 
 function verifyCellRow(matrix, row, column, isNull) {
     let isSafe = true;
     for (let i = row; i >= 0 && isSafe == true; --i) {
-        cellsResult(matrix, row, column, isNull, isSafe);
-        console.log(isSafe);
+        if (matrix[i][column] == 0) { 
+            ++isNull;   
+            cellsResult(matrix, i, column);
+        } else {
+            isSafe = false;
+        }
     }
 }
 
