@@ -116,7 +116,7 @@ function cellsResult(matrix, row, column) {
     neighboursValues(matrix, row, column);
 }
 
-function verifyCells(matrix, row, column, isNull) {
+function verifyCellRow(matrix, row, column, isNull) {
     let isSafe = true;
     for (let i = row; i >= 0 && isSafe == true; --i) {
         if (matrix[i][column] == 0) { 
@@ -132,7 +132,7 @@ function north(matrix, row, column) {
     let isTrue = true;
     for (let j = column; j >= 0 && isTrue == true; --j) {
         let isNull = 0;
-        verifyCells(matrix, row, j, isNull);
+        verifyCellRow(matrix, row, j, isNull);
         if (isNull == 0) {
             isTrue = false;
         }
@@ -140,7 +140,7 @@ function north(matrix, row, column) {
     let isTrue2 = true;
     for (let j = column; j <= 8 && isTrue2 == true; ++j) {
         let isNull = 0;
-        verifyCells(matrix, row, j, isNull);
+        verifyCellRow(matrix, row, j, isNull);
         if (isNull == 0) {
             isTrue2 = false;
         }
