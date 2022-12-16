@@ -119,7 +119,7 @@ function cellsResult(matrix, row, column) {
 function north(matrix, row, column) {
     let isTrue = true;
     for (let j = column; j >= 0 && isTrue == true; --j) {
-        let isNull = 0;
+        let isSafe = true, isNull = 0;
         for (let i = row; i >= 0 && isSafe == true; --i) {
             if (matrix[i][column] == 0) { 
                 ++isNull;   
@@ -134,7 +134,7 @@ function north(matrix, row, column) {
     }
     let isTrue2 = true;
     for (let j = column; j <= 8 && isTrue2 == true; ++j) {
-        let isNull = 0;
+        let isSafe = true, isNull = 0;
         for (let i = row; i >= 0 && isSafe == true; --i) {
             if (matrix[i][column] == 0) { 
                 ++isNull;   
