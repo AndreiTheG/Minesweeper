@@ -250,53 +250,123 @@ function west(matrix, row, column) {
 
 function visitNeighbours(matrix, row, column) {
     let isTrue = true;
-    for (let i = row, k = row; (i >= 0 && k <= 8) && isTrue == true; --i, ++k) {
+    for (let j = column; j >= 0 && isTrue == true; --j) {
         let isSafe = true, isNull = 0;
-        for (let j = column, l = column; (j >= 0 && l <= 8) && isSafe == true; --j, ++l) {
+        for (let i = row; i >= 0 && isSafe == true; --i) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, i, j);
-            } /*else if (matrix[k][j] == 0) { 
-                ++isNull;   
-                cellsResult(matrix, k, j);
-            } else if (matrix[i][l] == 0) { 
-                ++isNull;   
-                cellsResult(matrix, i, l);
-            } else if (matrix[k][l] == 0) { 
-                ++isNull;   
-                cellsResult(matrix, k, l);
-            }*/ else {
+            } else {
                 isSafe = false;
             }
-            console.log(''+ i + '' + j + '; ' + k + '' + l + '');
         }
         if (isNull == 0) {
             isTrue = false;
         }
     }
     let isTrue2 = true;
-    for (let j = column, l = column; (j >= 0 && l <= 8) && isTrue2 == true; --j, ++l) {
+    for (let j = column; j <= 8 && isTrue2 == true; ++j) {
         let isSafe = true, isNull = 0;
-        for (let i = row, k = row; (i >= 0 && k <= 8) && isSafe == true; --i, ++k) {
+        for (let i = row; i >= 0 && isSafe == true; --i) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, i, j);
-            }/* else if (matrix[k][j] == 0) { 
-                ++isNull;   
-                cellsResult(matrix, k, j);
-            } else if (matrix[i][l] == 0) { 
-                ++isNull;   
-                cellsResult(matrix, i, l);
-            } else if (matrix[k][l] == 0) { 
-                ++isNull;   
-                cellsResult(matrix, k, l);
-            }*/ else {
+            } else {
                 isSafe = false;
             }
-            console.log(''+ i + '' + j + '; ' + k + '' + l + '');
         }
         if (isNull == 0) {
             isTrue2 = false;
+        }
+    }
+    let isTrue3 = true;
+    for (let j = column; j <= 8 && isTrue3 == true; ++j) {
+        let isSafe = true, isNull = 0;
+        for (let i = row; i <= 8 && isSafe == true; ++i) {
+            if (matrix[i][j] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, i, j);
+            } else {
+                isSafe = false;
+            }
+        }
+        if (isNull == 0) {
+            isTrue3 = false;
+        }
+    }
+    let isTrue4 = true;
+    for (let j = column; j >= 0 && isTrue4 == true; --j) {
+        let isSafe = true, isNull = 0;
+        for (let i = row; i <= 8 && isSafe == true; ++i) {
+            if (matrix[i][j] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, i, j);
+            } else {
+                isSafe = false;
+            }
+        }
+        if (isNull == 0) {
+            isTrue4 = false;
+        }
+    }
+    let isTrue5 = true;
+    for (let i = row; i <= 8 && isTrue5 == true; ++i) {
+        let isSafe = true, isNull = 0;
+        for (let j = column; j <= 8 && isSafe == true; ++j) {
+            if (matrix[i][j] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, i, j);
+            } else {
+                isSafe = false;
+            }
+        }
+        if (isNull == 0) {
+            isTrue5 = false;
+        }
+    }
+    let isTrue6 = true;
+    for (let i = row; i >= 0 && isTrue6 == true; --i) {
+        let isSafe = true, isNull = 0;
+        for (let j = column; j <= 8 && isSafe == true; ++j) {
+            if (matrix[i][j] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, i, j);
+            } else {
+                isSafe = false;
+            }
+        }
+        if (isNull == 0) {
+            isTrue6 = false;
+        }
+    }
+    let isTrue7 = true;
+    for (let i = row; i <= 8 && isTrue7 == true; ++i) {
+        let isSafe = true, isNull = 0;
+        for (let j = column; j >= 0 && isSafe == true; --j) {
+            if (matrix[i][j] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, i, j);
+            } else {
+                isSafe = false;
+            }
+        }
+        if (isNull == 0) {
+            isTrue7 = false;
+        }
+    }
+    let isTrue8 = true;
+    for (let i = row; i >= 0 && isTrue8 == true; --i) {
+        let isSafe = true, isNull = 0;
+        for (let j = column; j >= 0 && isSafe == true; --j) {
+            if (matrix[i][j] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, i, j);
+            } else {
+                isSafe = false;
+            }
+        }
+        if (isNull == 0) {
+            isTrue8 = false;
         }
     }
 }
