@@ -258,14 +258,14 @@ function visitNeighbours(matrix, row, column) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(matrix, i, j);
-                    if (j == 0 || j == 8) {
+                    if (j == lastCol) {
                         isSafe = false;
                     }
                 } else {
                     isSafe = false;
                 }
             }
-            if (i == 0 || i == 8) {
+            if (i == lastRow) {
                 isTrue = false;
             }
             if (isNull == 0) {
@@ -279,14 +279,14 @@ function visitNeighbours(matrix, row, column) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(matrix, i, j);
-                    if (i == 0 || i == 8) {
+                    if (i == lastRow) {
                         isSafe = false;
                     }
                 } else {
                     isSafe = false;
                 }
             }
-            if (j == 0 || j == 8) {
+            if (j == lastCol) {
                 isTrue2 = false;
             }
             if (isNull == 0) {
@@ -295,9 +295,12 @@ function visitNeighbours(matrix, row, column) {
         }
         if (step % 2 == 0) {
             value1 = -1;
+            lastRow = 0;
             value2 = 1;
+            lastCol = 8;
         } else {
             value2 = -1;
+            lastCol = 0;
         }
     }
 }
