@@ -271,7 +271,7 @@ function visitNeighbours(matrix, row, column) {
             console.log(''+ i + '' + j + '; ' + k + '' + l + '');
         }
         if (isNull == 0) {
-            isTrue2 = false;
+            isTrue = false;
         }
     }
     let isTrue2 = true;
