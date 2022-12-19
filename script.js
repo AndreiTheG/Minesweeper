@@ -123,14 +123,26 @@ function visitNeighbours(matrix, row, column) {
         for (let i = firstPos1; isTrue == true; i += value1) {
             let isSafe = true, isNull = 0;
             for (let j = firstPos2; isSafe == true; j += value2) {
-                if (matrix[i][j] == 0) { 
-                    ++isNull;   
-                    cellsResult(matrix, i, j);
-                    if (j == lastPos2) {
+                if (step % 2 != 0) {
+                    if (matrix[i][j] == 0) { 
+                        ++isNull;   
+                        cellsResult(matrix, i, j);
+                        if (j == lastPos2) {
+                            isSafe = false;
+                        }
+                    } else {
                         isSafe = false;
                     }
                 } else {
-                    isSafe = false;
+                    if (matrix[j][i] == 0) { 
+                        ++isNull;   
+                        cellsResult(matrix, j, i);
+                        if (j == lastPos2) {
+                            isSafe = false;
+                        }
+                    } else {
+                        isSafe = false;
+                    }
                 }
             }
             if (i == lastPos1) {
