@@ -249,10 +249,35 @@ function west(matrix, row, column) {
 }*/
 
 function visitNeighbours(matrix, row, column) {
-    let isTrue2 = true;
-    for (let i = row, k = row; (i >= 0 && k <= 8) && isTrue2 == true; --i, ++k) {
+    let isTrue = true;
+    for (let i = row, k = row; (i >= 0 && k <= 8) && isTrue == true; --i, ++k) {
         let isSafe = true, isNull = 0;
         for (let j = column, l = column; (j >= 0 && l <= 8) && isSafe == true; --j, ++l) {
+            if (matrix[i][j] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, i, j);
+            } else if (matrix[k][j] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, k, j);
+            } else if (matrix[i][l] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, i, l);
+            } else if (matrix[k][l] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, k, l);
+            } else {
+                isSafe = false;
+            }
+            console.log(''+ i + '' + j + '; ' + k + '' + l + '');
+        }
+        if (isNull == 0) {
+            isTrue2 = false;
+        }
+    }
+    let isTrue2 = true;
+    for (let j = column, l = column; (j >= 0 && l <= 8) && isTrue2 == true; --j, ++l) {
+        let isSafe = true, isNull = 0;
+        for (let i = row, k = row; (i >= 0 && k <= 8) && isSafe == true; --i, ++k) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, i, j);
