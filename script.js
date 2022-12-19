@@ -116,7 +116,7 @@ function cellsResult(matrix, row, column) {
     neighboursValues(matrix, row, column);
 }
 
-function north(matrix, row, column) {
+/*function north(matrix, row, column) {
     let isTrue = true;
     for (let j = column; j >= 0 && isTrue == true; --j) {
         let isSafe = true, isNull = 0;
@@ -246,6 +246,33 @@ function west(matrix, row, column) {
             isTrue2 = false;
         }
     }
+}*/
+
+function visitNeighbours(matrix, row, column) {
+    let isTrue2 = true;
+    for (let i = row, k = row; i >= 0 && k <= 8 && isTrue2 == true; --i, ++k) {
+        let isSafe = true, isNull = 0;
+        for (let j = column, l = column; j >= 0 && l <= 8 && isSafe == true; --j, ++l) {
+            if (matrix[i][j] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, i, j);
+            } else if (matrix[k][j] == 0) {
+                ++isNull;   
+                cellsResult(matrix, k, j);
+            } else if (matrix[i][l] == 0) {
+                ++isNull;   
+                cellsResult(matrix, i, l);
+            } else if (matrix[k][l] == 0) {
+                ++isNull;   
+                cellsResult(matrix, k, l);
+            } else {
+                isSafe = false;
+            }
+        }
+        if (isNull == 0) {
+            isTrue2 = false;
+        }
+    }
 }
 
 function findCell(matrix) {
@@ -260,10 +287,11 @@ function findCell(matrix) {
                     document.getElementById(id).onclick = null;
                     document.getElementById(id).style.background = 'green';
                     if (i >= 0 && i <= 8 && j >= 0 && j <= 8) {
-                        west(matrix, i, j);
+                       /* west(matrix, i, j);
                         east(matrix, i, j);
                         south(matrix, i, j);
-                        north(matrix, i, j);         
+                        north(matrix, i, j);*/
+                        visitNeighbours(matrix, i, j);         
                     }
                 } else if (value == 10) {
                     document.getElementById(id).innerHTML = '💣';
