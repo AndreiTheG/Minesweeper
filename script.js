@@ -259,7 +259,7 @@ function visitNeighbours(matrix, i, j) {
             } else {
                 isSafe = false;
             }
-            console.log(''+ i + '' + j + '; ' + 'k' + 'l');
+            console.log(''+ i + '' + j + '; ' + k + '' + l + '');
         }
         if (isNull == 0) {
             isTrue2 = false;
