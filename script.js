@@ -279,14 +279,14 @@ function visitNeighbours(matrix, row, column) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(matrix, i, j);
-                    if (j == 0 || j == 8) {
+                    if (i == 0 || i == 8) {
                         isSafe = false;
                     }
                 } else {
                     isSafe = false;
                 }
             }
-            if (i == 0 || i == 8) {
+            if (j == 0 || j == 8) {
                 isTrue2 = false;
             }
             if (isNull == 0) {
