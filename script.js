@@ -273,9 +273,9 @@ function visitNeighbours(matrix, row, column) {
             } 
         }
         let isTrue2 = true;
-        for (let j = column; (j <= lastCol && j >= lastCol) && isTrue2 == true; j += value2) {
+        for (let j = column; isTrue2 == true; j += value2) {
             let isSafe = true, isNull = 0;
-            for (let i = row; (i <= lastRow && i >= lastRow) && isSafe == true; i += value1) {
+            for (let i = row; isSafe == true; i += value1) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(matrix, i, j);
