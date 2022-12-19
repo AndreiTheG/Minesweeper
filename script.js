@@ -248,7 +248,7 @@ function west(matrix, row, column) {
     }
 }*/
 
-function visitNeighbours(matrix, i, j) {
+function visitNeighbours(matrix, row, column) {
     let isTrue2 = true;
     for (let i = row, k = row; i >= 0 && k <= 8 && isTrue2 == true; --i, ++k) {
         let isSafe = true, isNull = 0;
