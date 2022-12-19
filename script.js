@@ -256,7 +256,7 @@ function visitNeighbours(matrix, row, column) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, i, j);
-            } else if (matrix[k][j] == 0) { 
+            } /*else if (matrix[k][j] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, k, j);
             } else if (matrix[i][l] == 0) { 
@@ -265,7 +265,7 @@ function visitNeighbours(matrix, row, column) {
             } else if (matrix[k][l] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, k, l);
-            } else {
+            }*/ else {
                 isSafe = false;
             }
             console.log(''+ i + '' + j + '; ' + k + '' + l + '');
@@ -281,7 +281,7 @@ function visitNeighbours(matrix, row, column) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, i, j);
-            } else if (matrix[k][j] == 0) { 
+            }/* else if (matrix[k][j] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, k, j);
             } else if (matrix[i][l] == 0) { 
@@ -290,7 +290,7 @@ function visitNeighbours(matrix, row, column) {
             } else if (matrix[k][l] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, k, l);
-            } else {
+            }*/ else {
                 isSafe = false;
             }
             console.log(''+ i + '' + j + '; ' + k + '' + l + '');
