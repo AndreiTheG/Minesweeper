@@ -256,6 +256,15 @@ function visitNeighbours(matrix, row, column) {
             if (matrix[i][j] == 0) { 
                 ++isNull;   
                 cellsResult(matrix, i, j);
+            } else if (matrix[k][j] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, k, j);
+            } else if (matrix[i][l] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, i, l);
+            } else if (matrix[k][l] == 0) { 
+                ++isNull;   
+                cellsResult(matrix, k, l);
             } else {
                 isSafe = false;
             }
