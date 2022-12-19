@@ -252,9 +252,9 @@ function visitNeighbours(matrix, row, column) {
     let lastRow = 8, lastCol = 8, value1 = 1, value2 = 1;
     for (let step = 1; step <= 4; ++step) {
         let isTrue = true;
-        for (let i = row; (i <= lastRow || i >= lastRow) && isTrue == true; i += value1) {
+        for (let i = row; (i <= lastRow && i >= lastRow) && isTrue == true; i += value1) {
             let isSafe = true, isNull = 0;
-            for (let j = column; (j <= lastCol || j >= lastCol) && isSafe == true; j += value2) {
+            for (let j = column; (j <= lastCol && j >= lastCol) && isSafe == true; j += value2) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(matrix, i, j);
@@ -267,9 +267,9 @@ function visitNeighbours(matrix, row, column) {
             }                
         }
         let isTrue2 = true;
-        for (let j = column; (j <= lastCol || j >= lastCol) && isTrue2 == true; j += value2) {
+        for (let j = column; (j <= lastCol && j >= lastCol) && isTrue2 == true; j += value2) {
             let isSafe = true, isNull = 0;
-            for (let i = row; (i <= lastRow || i >= lastRow) && isSafe == true; i += value1) {
+            for (let i = row; (i <= lastRow && i >= lastRow) && isSafe == true; i += value1) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(matrix, i, j);
