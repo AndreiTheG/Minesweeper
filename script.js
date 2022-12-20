@@ -110,7 +110,7 @@ function neighboursValues(matrix, k, l) {
     for (let j = firstCol; j <= lastCol; ++j) {
         if (matrix[firstRow][j] == 0) {
             cellsResult(matrix, firstRow, j)
-        } else if (matrix[firstRow][j] > 0 && matrix[row][j] < 10) {
+        } else if (matrix[firstRow][j] > 0 && matrix[firstRow][j] < 10) {
             document.getElementById('' + firstRow + '' + j + '').innerHTML = matrix[firstRow][j];
             document.getElementById('' + firstRow + '' + j + '').style.background = 'green';
         }
