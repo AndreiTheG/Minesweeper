@@ -5,7 +5,7 @@ function replay() {
 function generateTable() {
     const tbl = document.createElement("table");
     const tblBody = document.createElement("tbody");
-    let countOne = 10;
+    //let countOne = 10;
     for (let i = 0; i < 9; ++i) {
         const row = document.createElement("tr");
         for (let j = 0; j < 9; ++j) {
@@ -26,6 +26,31 @@ function generateTable() {
     pressCell();
 }
 
+function numMinesNeighbours(matrix, firstRow, firstCol, lastRow, lastCol) {
+    let countNeighbours = 0;
+    for (let j = firstCol; j <= lastCol; ++j) {
+        if (matrix[firstRow][j] == 10) {
+            ++countNeighbours;
+        }
+    }
+    for (let i = firstRow + 1; i <= lastRow; ++i) {
+        if (matrix[i][lastCol] == 10) {
+            ++countNeighbours;
+        }
+    }
+    for (let j = lastCol - 1; j >= firstCol; --j) {
+        if (matrix[i][lastCol] == 10) {
+            ++countNeighbours;
+        }
+    }
+    for (let i = lastRow - 1; i > firstRow; --i) {
+        if (matrix[i][firstCol] == 10) {
+            ++countNeighbours;
+        }
+    }
+    return countNeighbours;
+}
+
 function pressCell() {
     let minesCounter = 10;
     let matrix = [[],[],[],[],[],[],[],[],[],[],[]];
@@ -43,7 +68,8 @@ function pressCell() {
     for (let i = 0; i < 9; ++i) {
         for (let j = 0; j < 9; ++j) {
             if (matrix[i][j] == 0) {
-                if (i - 1 >= 0 && j - 1 >= 0 && matrix[i - 1][j - 1] == 10) {
+                matrix[i][j] = numMinesNeighbours(matrix, i - 1, j - 1, i + 1, j + 1);
+                /*if (i - 1 >= 0 && j - 1 >= 0 && matrix[i - 1][j - 1] == 10) {
                     ++matrix[i][j];
                 }
                 if (i - 1 >= 0 && matrix[i - 1][j] == 10) {
@@ -66,7 +92,7 @@ function pressCell() {
                 }
                 if (j - 1 >= 0 && matrix[i][j - 1] == 10) {
                     ++matrix[i][j];
-                }
+                }*/
             }
         }
     }
