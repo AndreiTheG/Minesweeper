@@ -88,14 +88,9 @@ function pressCell() {
     findCell(matrix);
 }
 
-function cellValue(matrix, row, column) {
-    if (matrix[row][column] == 0) {
-        document.getElementById('' + row + '' + column + '').innerHTML = ' ';
-        document.getElementById('' + row + '' + column + '').style.background = 'green';
-    } else if (matrix[row][column] > 0 && matrix[row][column] < 10) {
-        document.getElementById('' + row + '' + column + '').innerHTML = matrix[row][column];
-        document.getElementById('' + row + '' + column + '').style.background = 'green';
-    }
+function cellsResult(matrix, row, column) {
+    document.getElementById('' + row + '' + column + '').innerHTML = ' ';
+    document.getElementById('' + row + '' + column + '').style.background = 'green';
 }
 
 function neighboursValues(matrix, k, l) {
@@ -113,23 +108,37 @@ function neighboursValues(matrix, k, l) {
         lastCol = l + 1;
     }
     for (let j = firstCol; j <= lastCol; ++j) {
-        cellValue(matrix, firstRow, j);
+        if (matrix[firstRow][j] == 0) {
+            cellsResult(matrix, firstRow, j)
+        } else if (matrix[firstRow][j] > 0 && matrix[row][j] < 10) {
+            document.getElementById('' + firstRow + '' + j + '').innerHTML = matrix[firstRow][j];
+            document.getElementById('' + firstRow + '' + j + '').style.background = 'green';
+        }
     }
     for (let i = firstRow + 1; i <= lastRow; ++i) {
-        cellValue(matrix, i, lastCol);
+        if (matrix[i][lastCol] == 0) {
+            cellsResult(matrix, i, lastCol)
+        } else if (matrix[i][lastCol] > 0 && matrix[i][lastCol] < 10) {
+            document.getElementById('' + i + '' + lastCol + '').innerHTML = matrix[i][lastCol];
+            document.getElementById('' + i + '' + lastCol + '').style.background = 'green';
+        }
     }
     for (let j = lastCol - 1; j >= firstCol; --j) {
-        cellValue(matrix, lastRow, j);
+        if (matrix[lastRow][j] == 0) {
+            cellsResult(matrix, lastRow, j)
+        } else if (matrix[lastRow][j] > 0 && matrix[lastRow][j] < 10) {
+            document.getElementById('' + lastRow + '' + j + '').innerHTML = matrix[lastRow][j];
+            document.getElementById('' + lastRow + '' + j + '').style.background = 'green';
+        }
     }
     for (let i = lastRow - 1; i > firstRow; --i) {
-        cellValue(matrix, i, firstCol);
+        if (matrix[i][firstCol] == 0) {
+            cellsResult(matrix, i, firstCol)
+        } else if (matrix[i][firstCol] > 0 && matrix[i][firstCol] < 10) {
+            document.getElementById('' + i + '' + firstCol + '').innerHTML = matrix[i][firstCol];
+            document.getElementById('' + i + '' + firstCol + '').style.background = 'green';
+        }
     }
-}
-
-function cellsResult(matrix, row, column) {
-    document.getElementById('' + row + '' + column + '').innerHTML = ' ';
-    document.getElementById('' + row + '' + column + '').style.background = 'green';
-    neighboursValues(matrix, row, column);
 }
 
 function visitNeighbours(matrix, row, column) {
@@ -142,6 +151,7 @@ function visitNeighbours(matrix, row, column) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(matrix, i, j);
+                    neighboursValues(matrix, i, j);
                     if (j == lastCol) {
                         isSafe = false;
                     }
