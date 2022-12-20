@@ -28,17 +28,17 @@ function generateTable() {
 
 function numMinesNeighbours(matrix, row, col) {
     let firstRow = row, firstCol = col, lastRow = row, lastCol = col;
-    if (i - 1 >= 0) {
-        firstRow = i - 1;
+    if (row - 1 >= 0) {
+        firstRow = row - 1;
     }
-    if (j - 1 >= 0) {
-        firstCol = j - 1;
+    if (col - 1 >= 0) {
+        firstCol = col - 1;
     }
-    if (i + 1 <= 8) {
-        lastRow = i + 1;
+    if (row + 1 <= 8) {
+        lastRow = row + 1;
     }
-    if (j + 1 <= 8) {
-        lastCol = j + 1;
+    if (col + 1 <= 8) {
+        lastCol = col + 1;
     }
     let countNeighbours = 0;
     for (let j = firstCol; j <= lastCol; ++j) {
