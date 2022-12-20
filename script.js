@@ -33,15 +33,12 @@ function numMinesNeighbours(matrix, row, col) {
     }
     if (col - 1 >= 0) {
         firstCol = col - 1;
-        ++numSteps;
     }
     if (row + 1 <= 8) {
         lastRow = row + 1;
-        ++numSteps;
     }
     if (col + 1 <= 8) {
         lastCol = col + 1;
-        ++numSteps;
     }
     let countNeighbours = 0;
     for (let i = firstRow; i <= lastRow; ++i) {
