@@ -31,29 +31,21 @@ function numMinesNeighbours(matrix, firstRow, firstCol, lastRow, lastCol) {
     for (let j = firstCol; j <= lastCol; ++j) {
         if (matrix[firstRow][j] == 10) {
             ++countNeighbours;
-        } else {
-            cellValue(matrix, firstRow, j);   
         }
     }
     for (let i = firstRow + 1; i <= lastRow; ++i) {
         if (matrix[i][lastCol] == 10) {
             ++countNeighbours;
-        } else {
-            cellValue(matrix, i, lastCol);   
         }
     }
     for (let j = lastCol - 1; j >= firstCol; --j) {
         if (matrix[lastRow][j] == 10) {
             ++countNeighbours;
-        } else {
-            cellValue(matrix, lastRow, j);   
         }
     }
     for (let i = lastRow - 1; i > firstRow; --i) {
         if (matrix[i][firstCol] == 10) {
             ++countNeighbours;
-        } else {
-            cellValue(matrix, i, firstCol);   
         }
     }
     return countNeighbours;
@@ -106,7 +98,7 @@ function cellValue(matrix, row, column) {
     }
 }
 
-/*function neighboursValues(matrix, k, l) {
+function neighboursValues(matrix, k, l) {
     let firstRow = k, firstCol = l, lastRow = k, lastCol = l;
     if (k - 1 >= 0) {
         firstRow = k - 1;
@@ -132,26 +124,12 @@ function cellValue(matrix, row, column) {
     for (let i = lastRow - 1; i > firstRow; --i) {
         cellValue(matrix, i, firstCol);
     }
-}*/
+}
 
 function cellsResult(matrix, row, column) {
     document.getElementById('' + row + '' + column + '').innerHTML = ' ';
     document.getElementById('' + row + '' + column + '').style.background = 'green';
-    //neighboursValues(matrix, row, column);
-    let firstRow = row, firstCol = column, lastRow = row, lastCol = column;
-    if (row - 1 >= 0) {
-        firstRow = row - 1;
-    }
-    if (column - 1 >= 0) {
-        firstCol = column - 1;
-    }
-    if (row + 1 <= 8) {
-        lastRow = row + 1;
-    }
-    if (column + 1 <= 8) {
-        lastCol = column + 1;
-    }
-    numMinesNeighbours(matrix, firstRow, firstCol, lastRow, lastCol);
+    neighboursValues(matrix, row, column);
 }
 
 function visitNeighbours(matrix, row, column) {
