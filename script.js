@@ -94,36 +94,14 @@ function neighboursValues(matrix, k, l) {
     if (l + 1 <= 8) {
         lastCol = l + 1;
     }
-    for (let j = firstCol; j <= lastCol; ++j) {
-        if (matrix[firstRow][j] == 0) {
-            cellsResult(matrix, firstRow, j)
-        } else if (matrix[firstRow][j] > 0 && matrix[firstRow][j] < 10) {
-            document.getElementById('' + firstRow + '' + j + '').innerHTML = matrix[firstRow][j];
-            document.getElementById('' + firstRow + '' + j + '').style.background = 'green';
-        }
-    }
-    for (let i = firstRow + 1; i <= lastRow; ++i) {
-        if (matrix[i][lastCol] == 0) {
-            cellsResult(matrix, i, lastCol)
-        } else if (matrix[i][lastCol] > 0 && matrix[i][lastCol] < 10) {
-            document.getElementById('' + i + '' + lastCol + '').innerHTML = matrix[i][lastCol];
-            document.getElementById('' + i + '' + lastCol + '').style.background = 'green';
-        }
-    }
-    for (let j = lastCol - 1; j >= firstCol; --j) {
-        if (matrix[lastRow][j] == 0) {
-            cellsResult(matrix, lastRow, j)
-        } else if (matrix[lastRow][j] > 0 && matrix[lastRow][j] < 10) {
-            document.getElementById('' + lastRow + '' + j + '').innerHTML = matrix[lastRow][j];
-            document.getElementById('' + lastRow + '' + j + '').style.background = 'green';
-        }
-    }
-    for (let i = lastRow - 1; i > firstRow; --i) {
-        if (matrix[i][firstCol] == 0) {
-            cellsResult(matrix, i, firstCol)
-        } else if (matrix[i][firstCol] > 0 && matrix[i][firstCol] < 10) {
-            document.getElementById('' + i + '' + firstCol + '').innerHTML = matrix[i][firstCol];
-            document.getElementById('' + i + '' + firstCol + '').style.background = 'green';
+    for (let i = firstRow; i <= lastRow; ++i) {
+        for (let j = firstCol; j <= lastCol; ++j) {
+            if (matrix[i][j] == 0) {
+                cellsResult(matrix, i, j)
+            } else if (matrix[i][j] > 0 && matrix[i][j] < 10) {
+                document.getElementById('' + i + '' + j + '').innerHTML = matrix[i][j];
+                document.getElementById('' + i + '' + j + '').style.background = 'green';
+            }
         }
     }
 }
