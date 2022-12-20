@@ -82,30 +82,6 @@ function pressCell() {
                     lastCol = j + 1;
                 }
                 matrix[i][j] += numMinesNeighbours(matrix, firstRow, firstCol, lastRow, lastCol);
-                /*if (i - 1 >= 0 && j - 1 >= 0 && matrix[i - 1][j - 1] == 10) {
-                    ++matrix[i][j];
-                }
-                if (i - 1 >= 0 && matrix[i - 1][j] == 10) {
-                    ++matrix[i][j];
-                }
-                if (i - 1 >= 0 && j + 1 <= 8 && matrix[i - 1][j + 1] == 10) {
-                    ++matrix[i][j];
-                }
-                if (j + 1 <= 8 && matrix[i][j + 1] == 10) {
-                    ++matrix[i][j];
-                }
-                if (i + 1 <= 8 && j + 1 <= 8 && matrix[i + 1][j + 1] == 10) {
-                    ++matrix[i][j];
-                }
-                if (i + 1 < 9 && matrix[i + 1][j] == 10) {
-                    ++matrix[i][j];
-                }
-                if (i + 1 <= 8 && j - 1 >= 0 && matrix[i + 1][j - 1] == 10) {
-                    ++matrix[i][j];
-                }
-                if (j - 1 >= 0 && matrix[i][j - 1] == 10) {
-                    ++matrix[i][j];
-                }*/
             }
         }
     }
