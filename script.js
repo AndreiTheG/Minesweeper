@@ -27,7 +27,7 @@ function generateTable() {
 }
 
 function numMinesNeighbours(matrix, row, col) {
-    let firstRow = row, firstCol = col, lastRow = row, lastCol = col, numSteps = 0;
+    let firstRow = row, firstCol = col, lastRow = row, lastCol = col;
     if (row - 1 >= 0) {
         firstRow = row - 1;
     }
@@ -43,6 +43,7 @@ function numMinesNeighbours(matrix, row, col) {
         lastCol = col + 1;
         ++numSteps;
     }
+    let countNeighbours = 0;
     for (let i = firstRow; i <= lastRow; ++i) {
         for (let j = firstCol; j <= lastCol; ++j) {
             if (i != row && j != col && matrix[i][j] == 10) {
