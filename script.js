@@ -39,7 +39,7 @@ function numMinesNeighbours(matrix, firstRow, firstCol, lastRow, lastCol) {
         }
     }
     for (let j = lastCol - 1; j >= firstCol; --j) {
-        if (matrix[i][lastCol] == 10) {
+        if (matrix[lastRow][j] == 10) {
             ++countNeighbours;
         }
     }
