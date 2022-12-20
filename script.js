@@ -99,29 +99,30 @@ function cellValue(matrix, row, column) {
 }
 
 function neighboursValues(matrix, k, l) {
+    let firstRow = k, firstCol = l, lastRow = k, lastCol = l;
     if (k - 1 >= 0) {
-        cellValue(matrix, k - 1, l);
-    } 
+        firstRow = k - 1;
+    }
+    if (l - 1 >= 0) {
+        firstCol = l - 1;
+    }
     if (k + 1 <= 8) {
-        cellValue(matrix, k + 1, l);
+        lastRow = k + 1;
     }
     if (l + 1 <= 8) {
-        cellValue(matrix, k, l + 1);
-    } 
-    if (l - 1 >= 0) {
-        cellValue(matrix, k, l - 1);
+        lastCol = l + 1;
     }
-    if (k + 1 <= 8 && l + 1 <= 8) {
-        cellValue(matrix, k + 1, l + 1);
+    for (let j = firstCol; j <= lastCol; ++j) {
+        cellValue(matrix, firstRow, j);
     }
-    if (k + 1 <= 8 && l - 1 >= 0) {
-        cellValue(matrix, k + 1, l - 1);
+    for (let i = firstRow + 1; i <= lastRow; ++i) {
+        cellValue(matrix, i, lastCol);
     }
-    if (k - 1 >= 0 && l + 1 <= 8) {
-        cellValue(matrix, k - 1, l + 1);
+    for (let j = lastCol - 1; j >= firstCol; --j) {
+        cellValue(matrix, lastRow, j);
     }
-    if (k - 1 >= 0 && l - 1 >= 0) {
-        cellValue(matrix, k - 1, l - 1);   
+    for (let i = lastRow - 1; i > firstRow; --i) {
+        cellValue(matrix, i, firstCol);
     }
 }
 
