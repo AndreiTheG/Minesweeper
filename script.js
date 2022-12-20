@@ -98,7 +98,7 @@ function cellValue(matrix, row, column) {
     }
 }
 
-function neighboursValues(matrix, k, l) {
+/*function neighboursValues(matrix, k, l) {
     let firstRow = k, firstCol = l, lastRow = k, lastCol = l;
     if (k - 1 >= 0) {
         firstRow = k - 1;
@@ -124,12 +124,26 @@ function neighboursValues(matrix, k, l) {
     for (let i = lastRow - 1; i > firstRow; --i) {
         cellValue(matrix, i, firstCol);
     }
-}
+}*/
 
 function cellsResult(matrix, row, column) {
     document.getElementById('' + row + '' + column + '').innerHTML = ' ';
     document.getElementById('' + row + '' + column + '').style.background = 'green';
-    neighboursValues(matrix, row, column);
+    //neighboursValues(matrix, row, column);
+    let firstRow = row, firstCol = column, lastRow = row, lastCol = column;
+    if (row - 1 >= 0) {
+        firstRow = row - 1;
+    }
+    if (column - 1 >= 0) {
+        firstCol = column - 1;
+    }
+    if (row + 1 <= 8) {
+        lastRow = row + 1;
+    }
+    if (column + 1 <= 8) {
+        lastCol = column + 1;
+    }
+    numMinesNeighbours(matrix, firstRow, firstCol, lastRow, lastCol);
 }
 
 function visitNeighbours(matrix, row, column) {
