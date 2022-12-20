@@ -113,8 +113,7 @@ function neighboursValues(matrix, k, l) {
         lastCol = l + 1;
     }
     for (let j = firstCol; j <= lastCol; ++j) {
-        
-    cellValue(matrix, firstRow, j);
+        cellValue(matrix, firstRow, j);
     }
     for (let i = firstRow + 1; i <= lastRow; ++i) {
         cellValue(matrix, i, lastCol);
