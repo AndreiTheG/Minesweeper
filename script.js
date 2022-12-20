@@ -173,6 +173,7 @@ function visitNeighbours(matrix, row, column) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(matrix, i, j);
+                    neighboursValues(matrix, i, j);
                     if (i == lastRow) {
                         isSafe = false;
                     }
