@@ -31,21 +31,29 @@ function numMinesNeighbours(matrix, firstRow, firstCol, lastRow, lastCol) {
     for (let j = firstCol; j <= lastCol; ++j) {
         if (matrix[firstRow][j] == 10) {
             ++countNeighbours;
+        } else {
+            cellValue(matrix, firstRow, j);   
         }
     }
     for (let i = firstRow + 1; i <= lastRow; ++i) {
         if (matrix[i][lastCol] == 10) {
             ++countNeighbours;
+        } else {
+            cellValue(matrix, i, lastCol);   
         }
     }
     for (let j = lastCol - 1; j >= firstCol; --j) {
         if (matrix[lastRow][j] == 10) {
             ++countNeighbours;
+        } else {
+            cellValue(matrix, lastRow, j);   
         }
     }
     for (let i = lastRow - 1; i > firstRow; --i) {
         if (matrix[i][firstCol] == 10) {
             ++countNeighbours;
+        } else {
+            cellValue(matrix, i, firstCol);   
         }
     }
     return countNeighbours;
