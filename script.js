@@ -68,7 +68,7 @@ function pressCell() {
     for (let i = 0; i < 9; ++i) {
         for (let j = 0; j < 9; ++j) {
             if (matrix[i][j] == 0) {
-                matrix[i][j] = numMinesNeighbours(matrix, i - 1, j - 1, i + 1, j + 1);
+                matrix[i][j] += numMinesNeighbours(matrix, i - 1, j - 1, i + 1, j + 1);
                 /*if (i - 1 >= 0 && j - 1 >= 0 && matrix[i - 1][j - 1] == 10) {
                     ++matrix[i][j];
                 }
