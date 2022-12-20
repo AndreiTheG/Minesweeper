@@ -62,6 +62,12 @@ function pressCell() {
                 --minesCounter;
             } else {
                 matrix[i][j] = 0;
+            }
+        } 
+    }
+    for (let i = 0; i < 9; ++i) {
+        for (let j = 0; j < 9; ++j) {
+            if (matrix[i][j] == 0) {
                 let firstRow = i, firstCol = j, lastRow = i, lastCol = j;
                 if (i - 1 >= 0) {
                     firstRow = i - 1;
@@ -77,15 +83,8 @@ function pressCell() {
                 }
                 matrix[i][j] += numMinesNeighbours(matrix, firstRow, firstCol, lastRow, lastCol);
             }
-        } 
-    }
-    /*for (let i = 0; i < 9; ++i) {
-        for (let j = 0; j < 9; ++j) {
-            if (matrix[i][j] == 0) {
-               
-            }
         }
-    }*/
+    }
     findCell(matrix);
 }
 
@@ -114,7 +113,8 @@ function neighboursValues(matrix, k, l) {
         lastCol = l + 1;
     }
     for (let j = firstCol; j <= lastCol; ++j) {
-        cellValue(matrix, firstRow, j);
+        
+    cellValue(matrix, firstRow, j);
     }
     for (let i = firstRow + 1; i <= lastRow; ++i) {
         cellValue(matrix, i, lastCol);
