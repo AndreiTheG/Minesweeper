@@ -26,7 +26,20 @@ function generateTable() {
     pressCell();
 }
 
-function numMinesNeighbours(matrix, firstRow, firstCol, lastRow, lastCol) {
+function numMinesNeighbours(matrix, row, col) {
+    let firstRow = row, firstCol = col, lastRow = row, lastCol = col;
+    if (i - 1 >= 0) {
+        firstRow = i - 1;
+    }
+    if (j - 1 >= 0) {
+        firstCol = j - 1;
+    }
+    if (i + 1 <= 8) {
+        lastRow = i + 1;
+    }
+    if (j + 1 <= 8) {
+        lastCol = j + 1;
+    }
     let countNeighbours = 0;
     for (let j = firstCol; j <= lastCol; ++j) {
         if (matrix[firstRow][j] == 10) {
@@ -68,20 +81,7 @@ function pressCell() {
     for (let i = 0; i < 9; ++i) {
         for (let j = 0; j < 9; ++j) {
             if (matrix[i][j] == 0) {
-                let firstRow = i, firstCol = j, lastRow = i, lastCol = j;
-                if (i - 1 >= 0) {
-                    firstRow = i - 1;
-                }
-                if (j - 1 >= 0) {
-                    firstCol = j - 1;
-                }
-                if (i + 1 <= 8) {
-                    lastRow = i + 1;
-                }
-                if (j + 1 <= 8) {
-                    lastCol = j + 1;
-                }
-                matrix[i][j] += numMinesNeighbours(matrix, firstRow, firstCol, lastRow, lastCol);
+                matrix[i][j] += numMinesNeighbours(matrix, i, j);
             }
         }
     }
