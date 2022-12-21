@@ -75,7 +75,7 @@ function pressCell() {
     findCell(matrix);
 }
 
-function cellsResult(matrix, row, column) {
+function cellsResult(row, column) {
     document.getElementById('' + row + '' + column + '').innerHTML = ' ';
     document.getElementById('' + row + '' + column + '').style.background = 'green';
 }
@@ -97,7 +97,7 @@ function neighboursValues(matrix, k, l) {
     for (let i = firstRow; i <= lastRow; ++i) {
         for (let j = firstCol; j <= lastCol; ++j) {
             if (matrix[i][j] == 0) {
-                cellsResult(matrix, i, j)
+                cellsResult(i, j)
             } else if (matrix[i][j] > 0 && matrix[i][j] < 10) {
                 document.getElementById('' + i + '' + j + '').innerHTML = matrix[i][j];
                 document.getElementById('' + i + '' + j + '').style.background = 'green';
