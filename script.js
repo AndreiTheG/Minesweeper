@@ -115,7 +115,7 @@ function visitNeighbours(matrix, row, column) {
             for (let j = column; isSafe == true; j += value2) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
-                    cellsResult(matrix, i, j);
+                    cellsResult(i, j);
                     neighboursValues(matrix, i, j);
                     if (j == lastCol) {
                         isSafe = false;
@@ -137,7 +137,7 @@ function visitNeighbours(matrix, row, column) {
             for (let i = row; isSafe == true; i += value1) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
-                    cellsResult(matrix, i, j);
+                    cellsResult(i, j);
                     neighboursValues(matrix, i, j);
                     if (i == lastRow) {
                         isSafe = false;
