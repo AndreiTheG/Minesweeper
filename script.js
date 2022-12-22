@@ -106,11 +106,11 @@ function neighboursValues(matrix, k, l) {
     }
 }
 
-function interchange(firstValue, secValue) {
+/*function interchange(firstValue, secValue) {
     let aux = firstValue;
     firstValue = secValue;
     secValue = aux;
-}
+}*/
 
 function visitNeighbours(matrix, row, column) {
     let firstPos1 = row, firstPos2 = column, lastPos1 = 8, lastPos2 = 8, value1 = 1, value2 = 1;
