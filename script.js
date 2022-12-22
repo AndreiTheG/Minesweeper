@@ -5,7 +5,6 @@ function replay() {
 function generateTable() {
     const tbl = document.createElement("table");
     const tblBody = document.createElement("tbody");
-    //let countOne = 10;
     for (let i = 0; i < 9; ++i) {
         const row = document.createElement("tr");
         for (let j = 0; j < 9; ++j) {
@@ -44,7 +43,6 @@ function checkBorders(row, col, firstRow, firstCol, lastRow, lastCol) {
 function numMinesNeighbours(matrix, row, col) {
     const firstRow = {value: row}, firstCol = {value: col}, lastRow = {value: row}, lastCol = {value: col};
     checkBorders(row, col, firstRow, firstCol, lastRow, lastCol);
-    console.log(firstRow.value);
     let countNeighbours = 0;
     for (let i = firstRow.value; i <= lastRow.value; ++i) {
         for (let j = firstCol.value; j <= lastCol.value; ++j) {
