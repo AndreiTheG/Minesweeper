@@ -114,10 +114,9 @@ function interchange(firstValue, secValue) {
 
 function visitNeighbours(matrix, row, column) {
     let firstPos1 = row, firstPos2 = column, lastPos1 = 8, lastPos2 = 8, value1 = 1, value2 = 1;
-    for (let step = 1; step <= 8; ++step) {
+    for (let step = 1; step <= 4; ++step) {
         let isTrue = true;
-        console.log(lastPos1, lastPos2);
-        /*for (let i = firstPos1; isTrue == true; i += value1) {
+        for (let i = firstPos1; isTrue == true; i += value1) {
             let isSafe = true, isNull = 0;
             for (let j = firstPos2; isSafe == true; j += value2) {
                 if (step % 2 != 0 && matrix[i][j] == 0) { 
@@ -144,7 +143,7 @@ function visitNeighbours(matrix, row, column) {
             if (isNull == 0) {
                 isTrue = false;
             } 
-        }*/
+        }
         if (step % 2 == 0 && step % 4 != 0) {
             value1 = -1;
             lastPos1 = 0;
@@ -153,10 +152,18 @@ function visitNeighbours(matrix, row, column) {
         } else {
             //value2 = -1;
             //lastCol = 0;
-            console.log("" + firstPos1 + ": " + firstPos2 + "");
-            interchange(firstPos1, firstPos2);
+            /*interchange(firstPos1, firstPos2);
             interchange(lastPos1, lastPos2);
-            interchange(value1, value2);
+            interchange(value1, value2);*/
+            let aux1 = firstPos1;
+            firstPos1 = firstPos2;
+            firstPos2 = aux1;
+            let aux2 = lastPos1;
+            lastPos1 = lastPos2;
+            lastPos2 = aux2;
+            let aux3 = value1;
+            value1 = value2;
+            value2 = aux3;
         }
         /*let isTrue2 = true;
         for (let j = column; isTrue2 == true; j += value2) {
