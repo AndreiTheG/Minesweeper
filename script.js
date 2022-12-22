@@ -102,7 +102,7 @@ function visitNeighbours(matrix, row, column) {
     let firstPos1 = row, firstPos2 = column, lastPos1 = 8, lastPos2 = 8, value1 = 1, value2 = 1;
     for (let step = 1; step <= 8; ++step) {
         let isTrue = true;
-        console.log(lastPos1, lastPos2, value1, value2);
+        console.log(lastPos1, lastPos2);
         for (let i = firstPos1; isTrue == true; i += value1) {
             let isSafe = true, isNull = 0;
             for (let j = firstPos2; isSafe == true; j += value2) {
@@ -140,7 +140,7 @@ function visitNeighbours(matrix, row, column) {
         if (step % 2 == 0 && step % 4 != 0) {
             value1 = -1;
             lastPos1= 0;
-        } else if (step % 2 != 0) {
+        } else {
             let aux1 = firstPos1;
             firstPos1 = firstPos2;
             firstPos2 = aux1;
