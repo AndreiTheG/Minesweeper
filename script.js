@@ -26,20 +26,25 @@ function generateTable() {
     pressCell();
 }
 
-function numMinesNeighbours(matrix, row, col) {
-    let firstRow = row, firstCol = col, lastRow = row, lastCol = col;
+function checkBorders(row, col, firstRow, firstCol, lastRow, lastCol) {
     if (row - 1 >= 0) {
-        firstRow = row - 1;
+        firstRow.value = row - 1;
     }
     if (col - 1 >= 0) {
-        firstCol = col - 1;
+        firstCol.value = col - 1;
     }
     if (row + 1 <= 8) {
-        lastRow = row + 1;
+        lastRow.value = row + 1;
     }
     if (col + 1 <= 8) {
-        lastCol = col + 1;
+        lastCol.value = col + 1;
     }
+}
+
+function numMinesNeighbours(matrix, row, col) {
+    const firstRow = {value: row}, firstCol = {value: col}, lastRow = {value: row}, lastCol = {value: col};
+    checkBorders(row, col, firstRow, firstCol, lastRow, lastCol);
+    
     let countNeighbours = 0;
     for (let i = firstRow; i <= lastRow; ++i) {
         for (let j = firstCol; j <= lastCol; ++j) {
