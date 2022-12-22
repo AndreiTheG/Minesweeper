@@ -153,6 +153,7 @@ function visitNeighbours(matrix, row, column) {
         } else {
             //value2 = -1;
             //lastCol = 0;
+            console.log("" + firstPos1 + ": " + firstPos2 + "");
             interchange(firstPos1, firstPos2);
             interchange(lastPos1, lastPos2);
             interchange(value1, value2);
