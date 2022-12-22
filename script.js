@@ -140,7 +140,7 @@ function visitNeighbours(matrix, row, column) {
         if (step % 2 == 0 && step % 4 != 0) {
             value1 = -1;
             lastPos1= 0;
-        } else {
+        } else if (step % 2 != 0) {
             let aux1 = firstPos1;
             firstPos1 = firstPos2;
             firstPos2 = aux1;
