@@ -86,21 +86,10 @@ function cellsResult(row, column) {
 }
 
 function neighboursValues(matrix, k, l) {
-    let firstRow = k, firstCol = l, lastRow = k, lastCol = l;
-    if (k - 1 >= 0) {
-        firstRow = k - 1;
-    }
-    if (l - 1 >= 0) {
-        firstCol = l - 1;
-    }
-    if (k + 1 <= 8) {
-        lastRow = k + 1;
-    }
-    if (l + 1 <= 8) {
-        lastCol = l + 1;
-    }
-    for (let i = firstRow; i <= lastRow; ++i) {
-        for (let j = firstCol; j <= lastCol; ++j) {
+    const firstRow = {value: k}, firstCol = {value: l}, lastRow = {value: k}, lastCol = {value: l};
+    checkBorders(k, l, firstRow, firstCol, lastRow, lastCol);
+    for (let i = firstRow.value; i <= lastRow.value; ++i) {
+        for (let j = firstCol.value; j <= lastCol.value; ++j) {
             if (matrix[i][j] == 0) {
                 cellsResult(i, j)
             } else if (matrix[i][j] > 0 && matrix[i][j] < 10) {
