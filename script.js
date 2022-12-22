@@ -46,8 +46,8 @@ function numMinesNeighbours(matrix, row, col) {
     checkBorders(row, col, firstRow, firstCol, lastRow, lastCol);
     console.log(firstRow.value);
     let countNeighbours = 0;
-    for (let i = firstRow; i <= lastRow; ++i) {
-        for (let j = firstCol; j <= lastCol; ++j) {
+    for (let i = firstRow.value; i <= lastRow.value; ++i) {
+        for (let j = firstCol.value; j <= lastCol.value; ++j) {
             if (matrix[i][j] == 10) {
                 ++countNeighbours;
             }
