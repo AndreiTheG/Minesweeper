@@ -114,7 +114,7 @@ function interchange(firstValue, secValue) {
 
 function visitNeighbours(matrix, row, column) {
     let firstPos1 = row, firstPos2 = column, lastPos1 = 8, lastPos2 = 8, value1 = 1, value2 = 1;
-    for (let step = 1; step <= 4; ++step) {
+    for (let step = 1; step <= 8; ++step) {
         let isTrue = true;
         console.log(lastPos1, lastPos2);
         for (let i = firstPos1; isTrue == true; i += value1) {
