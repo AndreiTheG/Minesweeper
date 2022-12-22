@@ -150,7 +150,7 @@ function visitNeighbours(matrix, row, column) {
             lastPos1 = 0;
             //value2 = 1;
             //lastCol = 8;
-        } else {
+        } else if (step % 2 != 0) {
             //value2 = -1;
             //lastCol = 0;
             /*interchange(firstPos1, firstPos2);
