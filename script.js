@@ -127,6 +127,13 @@ function visitNeighbours(matrix, row, column) {
                     if (j == lastPos2) {
                         isSafe = false;
                     }
+                } else if (step % 2 == 0 && matrix[j][i] == 0) { 
+                    ++isNull;   
+                    cellsResult(j, i);
+                    neighboursValues(matrix, j, i);
+                    if (j == lastPos2) {
+                        isSafe = false;
+                    }
                 } else {
                     isSafe = false;
                 }
