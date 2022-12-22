@@ -44,7 +44,7 @@ function checkBorders(row, col, firstRow, firstCol, lastRow, lastCol) {
 function numMinesNeighbours(matrix, row, col) {
     const firstRow = {value: row}, firstCol = {value: col}, lastRow = {value: row}, lastCol = {value: col};
     checkBorders(row, col, firstRow, firstCol, lastRow, lastCol);
-    
+    console.log(firstRow);
     let countNeighbours = 0;
     for (let i = firstRow; i <= lastRow; ++i) {
         for (let j = firstCol; j <= lastCol; ++j) {
