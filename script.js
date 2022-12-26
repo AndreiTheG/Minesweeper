@@ -89,7 +89,7 @@ function neighboursValues(matrix, k, l) {
     for (let i = firstRow.value; i <= lastRow.value; ++i) {
         for (let j = firstCol.value; j <= lastCol.value; ++j) {
             if (matrix[i][j] == 0) {
-                cellsResult(i, j)
+                cellsResult(i, j);
             } else if (matrix[i][j] > 0 && matrix[i][j] < 10) {
                 document.getElementById('' + i + '' + j + '').innerHTML = matrix[i][j];
                 document.getElementById('' + i + '' + j + '').style.background = 'green';
