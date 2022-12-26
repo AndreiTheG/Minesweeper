@@ -88,7 +88,7 @@ function neighboursValues(matrix, k, l) {
     checkBorders(k, l, firstRow, firstCol, lastRow, lastCol);
     for (let i = firstRow.value; i <= lastRow.value; ++i) {
         for (let j = firstCol.value; j <= lastCol.value; ++j) {
-            if (matrix[i][j] == 0) {
+            if (matrix[i][j] == 0 && i != k && j != l) {
                 cellsResult(i, j);
             } else if (matrix[i][j] > 0 && matrix[i][j] < 10) {
                 document.getElementById('' + i + '' + j + '').innerHTML = matrix[i][j];
