@@ -40,13 +40,19 @@ function checkBorders(row, col, firstRow, firstCol, lastRow, lastCol) {
     }
 }
 
-function numMinesNeighbours(matrix, row, col, numNeighbours) {
+function numMinesNeighbours(matrix, row, col, numNeighbours, step) {
     const firstRow = {value: row}, firstCol = {value: col}, lastRow = {value: row}, lastCol = {value: col};
     checkBorders(row, col, firstRow, firstCol, lastRow, lastCol);
     for (let i = firstRow.value; i <= lastRow.value; ++i) {
         for (let j = firstCol.value; j <= lastCol.value; ++j) {
-            if (matrix[i][j] == 10) {
+            if (matrix[i][j] == 10 && step == 1) {
                 ++numNeighbours.value;
+            }
+            if (matrix[i][j] == 0 && i != row && j != col && step == 2) {
+                cellsResult(i, j);
+            } else if (matrix[i][j] > 0 && matrix[i][j] < 10 && step == 2) {
+                document.getElementById('' + i + '' + j + '').innerHTML = matrix[i][j];
+                document.getElementById('' + i + '' + j + '').style.background = 'green';
             }
         }
     }
@@ -69,8 +75,8 @@ function pressCell() {
     for (let i = 0; i < 9; ++i) {
         for (let j = 0; j < 9; ++j) {
             if (matrix[i][j] == 0) {
-                const numNeighbours = {value: matrix[i][j]};
-                numMinesNeighbours(matrix, i, j, numNeighbours);
+                const numNeighbours = {value: matrix[i][j]}, step = 1;
+                numMinesNeighbours(matrix, i, j, numNeighbours, step);
                 matrix[i][j] = numNeighbours.value;
             }
         }
@@ -83,7 +89,7 @@ function cellsResult(row, column) {
     document.getElementById('' + row + '' + column + '').style.background = 'green';
 }
 
-function neighboursValues(matrix, k, l) {
+/*function neighboursValues(matrix, k, l) {
     const firstRow = {value: k}, firstCol = {value: l}, lastRow = {value: k}, lastCol = {value: l};
     checkBorders(k, l, firstRow, firstCol, lastRow, lastCol);
     for (let i = firstRow.value; i <= lastRow.value; ++i) {
@@ -96,7 +102,7 @@ function neighboursValues(matrix, k, l) {
             }
         }
     }
-}
+}*/
 
 function visitNeighbours(matrix, row, column) {
     let lastRow = 8, lastCol = 8, value1 = 1, value2 = 1;
@@ -108,7 +114,8 @@ function visitNeighbours(matrix, row, column) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(i, j);
-                    neighboursValues(matrix, i, j);
+                    numMinesNeighbours(matrix, i, j, matrix[i][j], )
+                    //neighboursValues(matrix, i, j);
                     if (j == lastCol) {
                         isSafe = false;
                     }
