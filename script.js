@@ -74,8 +74,8 @@ function pressCell() {
     for (let i = 0; i < 9; ++i) {
         for (let j = 0; j < 9; ++j) {
             if (matrix[i][j] == 0) {
-                const numNeighbours = {value: matrix[i][j]}, step = 1;
-                numMinesNeighbours(matrix, i, j, numNeighbours, step);
+                const numNeighbours = {value: matrix[i][j]};
+                numMinesNeighbours(matrix, i, j, numNeighbours, 1);
                 matrix[i][j] = numNeighbours.value;
             }
         }
@@ -88,21 +88,6 @@ function cellsResult(row, column) {
     document.getElementById('' + row + '' + column + '').style.background = 'green';
 }
 
-/*function neighboursValues(matrix, k, l) {
-    const firstRow = {value: k}, firstCol = {value: l}, lastRow = {value: k}, lastCol = {value: l};
-    checkBorders(k, l, firstRow, firstCol, lastRow, lastCol);
-    for (let i = firstRow.value; i <= lastRow.value; ++i) {
-        for (let j = firstCol.value; j <= lastCol.value; ++j) {
-            if (matrix[i][j] == 0 && i != k && j != l) {
-                cellsResult(i, j);
-            } else if (matrix[i][j] > 0 && matrix[i][j] < 10) {
-                document.getElementById('' + i + '' + j + '').innerHTML = matrix[i][j];
-                document.getElementById('' + i + '' + j + '').style.background = 'green';
-            }
-        }
-    }
-}*/
-
 function visitNeighbours(matrix, row, column) {
     let lastRow = 8, lastCol = 8, value1 = 1, value2 = 1;
     for (let step = 1; step <= 4; ++step) {
@@ -114,7 +99,6 @@ function visitNeighbours(matrix, row, column) {
                     ++isNull;   
                     cellsResult(i, j);
                     numMinesNeighbours(matrix, i, j, matrix[i][j], 2);
-                    //neighboursValues(matrix, i, j);
                     if (j == lastCol) {
                         isSafe = false;
                     }
@@ -137,7 +121,6 @@ function visitNeighbours(matrix, row, column) {
                     ++isNull;   
                     cellsResult(i, j);
                     numMinesNeighbours(matrix, i, j, matrix[i][j], 2);
-                    //neighboursValues(matrix, i, j);
                     if (i == lastRow) {
                         isSafe = false;
                     }
