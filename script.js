@@ -46,7 +46,7 @@ function numMinesNeighbours(matrix, row, col) {
     let countNeighbours = 0;
     for (let i = firstRow.value; i <= lastRow.value; ++i) {
         for (let j = firstCol.value; j <= lastCol.value; ++j) {
-            if (matrix[i][j] == 10 && i != row && j != col) {
+            if (matrix[i][j] == 10) {
                 ++countNeighbours;
             }
         }
