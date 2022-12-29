@@ -114,7 +114,8 @@ function visitNeighbours(matrix, row, column) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(i, j);
-                    numMinesNeighbours(matrix, i, j, matrix[i][j], )
+                    const step = 2;
+                    numMinesNeighbours(matrix, i, j, matrix[i][j], step);
                     //neighboursValues(matrix, i, j);
                     if (j == lastCol) {
                         isSafe = false;
@@ -137,7 +138,8 @@ function visitNeighbours(matrix, row, column) {
                 if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(i, j);
-                    neighboursValues(matrix, i, j);
+                    numMinesNeighbours(matrix, i, j, matrix[i][j], step);
+                    //neighboursValues(matrix, i, j);
                     if (i == lastRow) {
                         isSafe = false;
                     }
