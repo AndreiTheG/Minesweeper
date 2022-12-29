@@ -47,8 +47,7 @@ function numMinesNeighbours(matrix, row, col, numNeighbours, step) {
         for (let j = firstCol.value; j <= lastCol.value; ++j) {
             if (matrix[i][j] == 10 && step == 1) {
                 ++numNeighbours.value;
-            }
-            if (matrix[i][j] == 0 && i != row && j != col && step == 2) {
+            } else if (matrix[i][j] == 0 && i != row && j != col && step == 2) {
                 cellsResult(i, j);
             } else if (matrix[i][j] > 0 && matrix[i][j] < 10 && step == 2) {
                 document.getElementById('' + i + '' + j + '').innerHTML = matrix[i][j];
