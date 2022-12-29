@@ -40,18 +40,16 @@ function checkBorders(row, col, firstRow, firstCol, lastRow, lastCol) {
     }
 }
 
-function numMinesNeighbours(matrix, row, col) {
+function numMinesNeighbours(matrix, row, col, numNeighbours) {
     const firstRow = {value: row}, firstCol = {value: col}, lastRow = {value: row}, lastCol = {value: col};
     checkBorders(row, col, firstRow, firstCol, lastRow, lastCol);
-    let countNeighbours = 0;
     for (let i = firstRow.value; i <= lastRow.value; ++i) {
         for (let j = firstCol.value; j <= lastCol.value; ++j) {
             if (matrix[i][j] == 10) {
-                ++countNeighbours;
+                ++numNeighbours.value;
             }
         }
     }
-    return countNeighbours;
 }
 
 function pressCell() {
@@ -71,7 +69,9 @@ function pressCell() {
     for (let i = 0; i < 9; ++i) {
         for (let j = 0; j < 9; ++j) {
             if (matrix[i][j] == 0) {
-                matrix[i][j] += numMinesNeighbours(matrix, i, j);
+                const numNeighbours = {value: matrix[i][j]};
+                numMinesNeighbours(matrix, i, j, numNeighbours);
+                matrix[i][j] = numNeighbours.value;
             }
         }
     }
