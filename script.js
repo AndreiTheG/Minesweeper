@@ -49,7 +49,7 @@ function numMinesNeighbours(matrix, row, col, numNeighbours, step) {
                 ++numNeighbours.value;
             } else if (matrix[i][j] == 0 && i != row && j != col && step == 2) {
                 cellsResult(i, j);
-            } else if (matrix[i][j] > 0 && matrix[i][j] < 10 && step == 2) {
+            } else if (matrix[i][j] > 0 && matrix[i][j] < 10 && i != row && j != col && step == 2) {
                 document.getElementById('' + i + '' + j + '').innerHTML = matrix[i][j];
                 document.getElementById('' + i + '' + j + '').style.background = 'green';
             }
