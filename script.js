@@ -45,7 +45,7 @@ function numMinesNeighbours(matrix, row, col, numNeighbours, step) {
     checkBorders(row, col, firstRow, firstCol, lastRow, lastCol);
     for (let i = firstRow.value; i <= lastRow.value; ++i) {
         for (let j = firstCol.value; j <= lastCol.value; ++j) {
-            if (matrix[i][j] == 10  && i != row && j != col && step == 1) {
+            if (matrix[i][j] == 10 && step == 1) {
                 ++numNeighbours.value;
             } else if (matrix[i][j] == 0 && i != row && j != col && step == 2) {
                 cellsResult(i, j);
