@@ -111,6 +111,7 @@ function visitNeighbours(matrix, row, column) {
             const isSafe = {value: true}, isNull = {value: 0};
             for (let j = column; isSafe.value == true; j += value2) {
                 crossingCells(matrix, i, j, isNull, isSafe, lastRow, lastCol, 2);
+                console.log(isSafe.value);
                 /*if (matrix[i][j] == 0) { 
                     ++isNull.value;   
                     cellsResult(i, j);
@@ -125,7 +126,7 @@ function visitNeighbours(matrix, row, column) {
             if (i == lastRow) {
                 isTrue = false;
             }
-            if (isNull == 0) {
+            if (isNull.value == 0) {
                 isTrue = false;
             } 
         }
@@ -134,6 +135,7 @@ function visitNeighbours(matrix, row, column) {
             const isSafe = {value: true}, isNull = {value: 0};
             for (let i = row; isSafe.value == true; i += value1) {
                 crossingCells(matrix, i, j, isNull, isSafe, lastRow, lastCol, 1);
+                console.log(isSafe.value);
                 /*if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(i, j);
@@ -148,7 +150,7 @@ function visitNeighbours(matrix, row, column) {
             if (j == lastCol) {
                 isTrue2 = false;
             }
-            if (isNull == 0) {
+            if (isNull.value == 0) {
                 isTrue2 = false;
             }                
         }
