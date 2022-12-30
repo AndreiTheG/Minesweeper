@@ -88,7 +88,7 @@ function cellsResult(row, column) {
     document.getElementById('' + row + '' + column + '').style.background = 'green';
 }
 
-function crossingCells(row, col, isNull, isSafe, lastRow, lastCol, crossType) {
+function crossingCells(matrix, row, col, isNull, isSafe, lastRow, lastCol, crossType) {
     if (matrix[row][col] == 0) { 
         ++isNull.value;   
         cellsResult(row, col);
@@ -108,7 +108,7 @@ function visitNeighbours(matrix, row, column) {
         for (let i = row; isTrue == true; i += value1) {
             const isSafe = {value: true}, isNull = {value: 0};
             for (let j = column; isSafe.value == true; j += value2) {
-                crossingCells(i, j, isNull, isSafe, lastRow, lastCol, 2);
+                crossingCells(matrix, i, j, isNull, isSafe, lastRow, lastCol, 2);
                 /*if (matrix[i][j] == 0) { 
                     ++isNull.value;   
                     cellsResult(i, j);
@@ -131,7 +131,7 @@ function visitNeighbours(matrix, row, column) {
         for (let j = column; isTrue2 == true; j += value2) {
             let isSafe = true, isNull = 0;
             for (let i = row; isSafe == true; i += value1) {
-                crossingCells(i, j, isNull, isSafe, lastRow, lastCol, 2);
+                crossingCells(matrix, i, j, isNull, isSafe, lastRow, lastCol, 2);
                 /*if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(i, j);
