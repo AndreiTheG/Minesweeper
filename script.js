@@ -93,7 +93,9 @@ function crossingCells(matrix, row, col, isNull, isSafe, lastRow, lastCol, cross
         ++isNull.value;   
         cellsResult(row, col);
         numMinesNeighbours(matrix, row, col, matrix[row][col], 2);
-        if ((col == lastCol && crossType == 2) || (row == lastRow && crossType == 1)) {
+        if (col == lastCol && crossType == 2) {
+            isSafe.value = false;
+        } else if (row == lastRow && crossType == 1) {
             isSafe.value = false;
         }
     } else {
