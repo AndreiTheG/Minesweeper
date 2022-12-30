@@ -147,11 +147,11 @@ function visitNeighbours(matrix, row, column) {
             lastRow = 0;
             value2 = 1;
             lastCol = 8;*/
-            if (lastCol == 8) {
-                lastCol = 0;
+            if (lastPos2 == 8) {
+                lastPos2 = 0;
                 value2 = -1;
-            } else if (lastRow == 8) {
-                lastRow = 0;
+            } else if (lastPos1 == 8) {
+                lastPos1 = 0;
                 value1 = -1;
             }
         } else if (step % 4 != 0){
