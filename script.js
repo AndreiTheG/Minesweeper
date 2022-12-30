@@ -131,7 +131,7 @@ function visitNeighbours(matrix, row, column) {
         for (let j = column; isTrue2 == true; j += value2) {
             let isSafe = true, isNull = 0;
             for (let i = row; isSafe == true; i += value1) {
-                crossingCells(matrix, i, j, isNull, isSafe, lastRow, lastCol, 2);
+                crossingCells(matrix, i, j, isNull, isSafe, lastRow, lastCol, 1);
                 /*if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(i, j);
