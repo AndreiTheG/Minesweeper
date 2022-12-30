@@ -89,39 +89,31 @@ function cellsResult(row, column) {
 }
 
 function visitNeighbours(matrix, row, column) {
-    let firstPos1 = row, firstPos2 = column, lastPos1 = 8, lastPos2 = 8, value1 = 1, value2 = 1;
-    for (let step = 1; step <= 8; ++step) {
+    let lastRow = 8, lastCol = 8, value1 = 1, value2 = 1;
+    for (let step = 1; step <= 4; ++step) {
         let isTrue = true;
-        console.log(firstPos1 + " " + firstPos2 + " " + lastPos1 + " " + lastPos2 + " " + value1 + " " + value2);
-        for (let i = firstPos1; isTrue == true; i += value1) {
+        for (let i = row; isTrue == true; i += value1) {
             let isSafe = true, isNull = 0;
-            for (let j = firstPos2; isSafe == true; j += value2) {
-                if (matrix[i][j] == 0 && step % 2 != 0) { 
+            for (let j = column; isSafe == true; j += value2) {
+                if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(i, j);
                     numMinesNeighbours(matrix, i, j, matrix[i][j], 2);
-                    if (j == lastPos2) {
+                    if (j == lastCol) {
                         isSafe = false;
                     }
-                } else if (matrix[j][i] == 0 && step % 2 == 0) {
-                    ++isNull;   
-                    cellsResult(j, i);
-                    numMinesNeighbours(matrix, j, i, matrix[j][i], 2);
-                    if (j == lastPos2) {
-                        isSafe = false;
-                    }
-                }else {
+                } else {
                     isSafe = false;
-                } 
+                }
             }
-            if (i == lastPos1) {
+            if (i == lastRow) {
                 isTrue = false;
             }
             if (isNull == 0) {
                 isTrue = false;
             } 
         }
-        /*let isTrue2 = true;
+        let isTrue2 = true;
         for (let j = column; isTrue2 == true; j += value2) {
             let isSafe = true, isNull = 0;
             for (let i = row; isSafe == true; i += value1) {
@@ -142,31 +134,8 @@ function visitNeighbours(matrix, row, column) {
             if (isNull == 0) {
                 isTrue2 = false;
             }                
-        }*/
-        if (step % 2 == 0 && step % 4 != 0) {
-            /*value1 = -1;
-            lastRow = 0;
-            value2 = 1;
-            lastCol = 8;*/
-            if (lastPos2 == 8) {
-                lastPos2 = 0;
-                value2 = -1;
-            } else if (lastPos1 == 8) {
-                lastPos1 = 0;
-                value1 = -1;
-            }
-        } else if (step % 4 != 0){
-            let aux = lastPos1;
-            lastPos1 = lastPos2;
-            lastPos2 = aux;
-            let aux2 = firstPos1;
-            firstPos1 = firstPos2;
-            firstPos2 = aux2;
-            let aux3 = value1;
-            value1 = value2;
-            value2 = aux3;
         }
-        /*if (step % 2 == 0) {
+        if (step % 2 == 0) {
             value1 = -1;
             lastRow = 0;
             value2 = 1;
@@ -174,7 +143,7 @@ function visitNeighbours(matrix, row, column) {
         } else {
             value2 = -1;
             lastCol = 0;
-        }*/
+        }
     }
 }
 
