@@ -93,7 +93,7 @@ function crossingCells(matrix, row, col, isNull, isSafe, lastRow, lastCol, cross
         ++isNull.value;   
         cellsResult(row, col);
         numMinesNeighbours(matrix, row, col, matrix[row][col], 2);
-        if ((col == lastCol && crossType == 2) || (row == lastRow && crossType == 1)) {
+        if (col == lastCol && crossType == 2) {
             isSafe = false;
         }
     } else {
@@ -131,8 +131,8 @@ function visitNeighbours(matrix, row, column) {
         for (let j = column; isTrue2 == true; j += value2) {
             let isSafe = true, isNull = 0;
             for (let i = row; isSafe == true; i += value1) {
-                crossingCells(matrix, i, j, isNull, isSafe, lastRow, lastCol, 1);
-                /*if (matrix[i][j] == 0) { 
+                //crossingCells(matrix, i, j, isNull, isSafe, lastRow, lastCol, 1);
+                if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(i, j);
                     numMinesNeighbours(matrix, i, j, matrix[i][j], 2);
@@ -141,7 +141,7 @@ function visitNeighbours(matrix, row, column) {
                     }
                 } else {
                     isSafe = false;
-                }*/
+                }
             }
             if (j == lastCol) {
                 isTrue2 = false;
