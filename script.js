@@ -88,23 +88,37 @@ function cellsResult(row, column) {
     document.getElementById('' + row + '' + column + '').style.background = 'green';
 }
 
+function crossingCells(row, col, isNull, isSafe, lastRow, lastCol, crossType) {
+    if (matrix[row][col] == 0) { 
+        ++isNull.value;   
+        cellsResult(row, col);
+        numMinesNeighbours(matrix, row, col, matrix[row][col], 2);
+        if ((col == lastCol && crossType == 2) || (row == lastRow && crossType == 1)) {
+            isSafe = false;
+        }
+    } else {
+        isSafe.value = false;
+    }
+}
+
 function visitNeighbours(matrix, row, column) {
     let lastRow = 8, lastCol = 8, value1 = 1, value2 = 1;
     for (let step = 1; step <= 4; ++step) {
         let isTrue = true;
         for (let i = row; isTrue == true; i += value1) {
-            let isSafe = true, isNull = 0;
-            for (let j = column; isSafe == true; j += value2) {
-                if (matrix[i][j] == 0) { 
-                    ++isNull;   
+            const isSafe = {value: true}, isNull = {value: 0};
+            for (let j = column; isSafe.value == true; j += value2) {
+                crossingCells(i, j, isNull, isSafe, lastRow, lastCol, 2);
+                /*if (matrix[i][j] == 0) { 
+                    ++isNull.value;   
                     cellsResult(i, j);
                     numMinesNeighbours(matrix, i, j, matrix[i][j], 2);
                     if (j == lastCol) {
                         isSafe = false;
                     }
                 } else {
-                    isSafe = false;
-                }
+                    isSafe.value = false;
+                }*/
             }
             if (i == lastRow) {
                 isTrue = false;
@@ -117,7 +131,8 @@ function visitNeighbours(matrix, row, column) {
         for (let j = column; isTrue2 == true; j += value2) {
             let isSafe = true, isNull = 0;
             for (let i = row; isSafe == true; i += value1) {
-                if (matrix[i][j] == 0) { 
+                crossingCells(i, j, isNull, isSafe, lastRow, lastCol, 2);
+                /*if (matrix[i][j] == 0) { 
                     ++isNull;   
                     cellsResult(i, j);
                     numMinesNeighbours(matrix, i, j, matrix[i][j], 2);
@@ -126,7 +141,7 @@ function visitNeighbours(matrix, row, column) {
                     }
                 } else {
                     isSafe = false;
-                }
+                }*/
             }
             if (j == lastCol) {
                 isTrue2 = false;
